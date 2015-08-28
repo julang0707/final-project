@@ -1,20 +1,21 @@
 import React from 'react';
-import Parse from 'parse'
-import Router from 'react-router';
 
-import App from './app';
+import Parse from '../parse';
+
+
 
 class Login extends React.Component {
-  onSubmit() {
-    Parse.User.logIn("myname", "mypass", {
-      success: function(user) {
-        // Do stuff after successful login.
-      },
-      error: function(user, error) {
-        // The login failed. Check error to see why.
-      }
-    });
-  }
+
+  // onSubmit() {
+  //   Parse.User.logIn("myname", "mypass", {
+  //     success: function(user) {
+  //       // Do stuff after successful login.
+  //     },
+  //     error: function(user, error) {
+  //       // The login failed. Check error to see why.
+  //     }
+  //   });
+  // }
 
   render() {
     return (
@@ -27,3 +28,9 @@ class Login extends React.Component {
     )
   }
 }
+
+Login.contextTypes = {
+    router: React.PropTypes.func
+};
+
+export default Login;

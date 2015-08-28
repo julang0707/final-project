@@ -69,6 +69,7 @@ gulp.task('default', [
   'lint',
   'babel',
   'sass',
-  'copy'
+  'copy',
+  'webserver'
   ]
 );
