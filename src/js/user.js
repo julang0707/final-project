@@ -4,6 +4,7 @@ class User {
     this.email = null;
     this.firstName = null;
     this.lastName = null;
+    this.admin = false;
 
   }
 
@@ -21,6 +22,7 @@ class User {
     this.email = user.username;
     this.firstName = user.firstName;
     this.lastName = user.lastName;
+    this.admin = user.admin;
     return this;
   }
 

@@ -5,6 +5,8 @@ import HuntApp from './components/app';
 import Login from './components/login';
 import Register from './components/register';
 import GetStarted from './components/get-started';
+import Admin from './components/admin';
+
 
 
 var routes = (
@@ -12,6 +14,7 @@ var routes = (
     <DefaultRoute name="register" handler={Register} />
     <Route path="login" name="login" handler={Login} />
     <Route path="getstarted" name="getstarted" handler={GetStarted} />
+    <Route path="admin" name="admin" handler={Admin} />
   </Route>
 );
 
