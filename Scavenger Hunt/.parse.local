@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Scavenger Hunt": {
+      "applicationId": "ChLISqsdkrBjZhWfxblTnPuAsYj9ktNDV5f7VX10"
+    },
+    "_default": {
+      "link": "Scavenger Hunt"
+    }
+  }
+}

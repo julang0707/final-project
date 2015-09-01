@@ -6,6 +6,7 @@ import Login from './components/login';
 import Register from './components/register';
 import GetStarted from './components/get-started';
 import Admin from './components/admin';
+import LocationBefore from './components/location-before'
 
 
 
@@ -15,6 +16,7 @@ var routes = (
     <Route path="login" name="login" handler={Login} />
     <Route path="getstarted" name="getstarted" handler={GetStarted} />
     <Route path="admin" name="admin" handler={Admin} />
+    <Route path="before" name="before" handler={LocationBefore} />
   </Route>
 );
 

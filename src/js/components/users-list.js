@@ -6,33 +6,56 @@ import MainHeader from './main-header';
 
 class UsersList extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        data: []
+    };
+  }
+
+  componentDidMount() {
+    var users = Parse.Object.extend("User");
+    var query = new Parse.Query(User);
+    query.find({
+      success: function(results) {
+        this.setState({
+          data: results
+        });
+      },
+
+      error: function(error) {
+        this.setState({
+          data: []
+        });
+      }
+    });
+  }
+
   onUpdate() {
-    var Locations = Parse.Object.extend("Locations");
-    var locations = new Locations();
-    let email = user.get("email");
-    let firstName = user.get("firstName");
-    let lastName = user.get("lastName");
+    var User = Parse.Object.extend("User");
+    var user = new User();
     let admin = user.get("admin");
 
-    locations.set("admin", data.admin);
+    user.set("admin", data.admin);
 
-    locations.save(null, {
-      success: function(locations) {
-        locations.set("admin", true);
+    user.save(null, {
+      success: function(user) {
+        user.set("admin", true);
       }
     });
   }
 
   render() {
+
     return (
       <div className="users-list">
-        <section>
           <h2>Users List</h2>
-          <p>{this.refs.email}</p>
-          <p>{this.refs.firstName}</p>
-          <p>{this.refs.lastName}</p>
-          <input type="checkbox" ref="admin" onClick={this.onUpdate.bind(this)}/>
-        </section>
+          let users = [];
+            <li>{users.map((user) => {
+                return <User {...user} key={user._id}/>
+              })}</li>
+          <input type="checkbox" ref="admin" onChange={this.onUpdate.bind(this)}/>
       </div>
     )
   }

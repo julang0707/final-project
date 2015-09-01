@@ -1,10 +1,8 @@
 import React, {PropTypes} from 'react';
 
 import Parse from '../parse';
-import User from '../user';
-import ActiveHeader from './active-header';
 import Admin from './admin';
-
+import Location from '../location';
 
 class AddLocation extends React.Component {
 
@@ -23,19 +21,22 @@ class AddLocation extends React.Component {
       return;
     }
 
-    var GameScore = Parse.Object.extend("GameScore");
-    let locations = new Parse.Locations();
-    locations.set("title", data.title);
-    locations.set("description", data.description);
-    locations.set("unlockCode", data.unlockCode);
-    locations.set("location", data.location);
-    locations.set("order", data.order);
+    var Locations = Parse.Object.extend("Locations");
+    var location = new Locations();
+    var [lat, lng] = data.location.split(',');
+    var point = new Parse.GeoPoint({latitude: Number(lat), longitude: Number(lng)});
+    location.set("title", data.title);
+    location.set("description", data.description);
+    location.set("unlockCode", data.unlockCode);
+    location.set("location", point);
+    location.set("order", Number(data.order));
 
-    locations.save(null, {
-      success: function(locations) {
+    location.save(null, {
+      success: function(location) {
+        Location.setData(location);
         self.context.router.transitionTo('admin');
       },
-      error: function(locations, error) {
+      error: function(location, error) {
         alert('Failed to create new object, with error code: ' + error.message);
       }
     });
@@ -45,11 +46,8 @@ class AddLocation extends React.Component {
 
     return (
       <div className="add-location">
-        <header>
-          <ActiveHeader/>
-        </header>
         <section>
-          <h2>Add a New Location</h2>
+          <h2>Add a New Spot</h2>
           <input type="text" ref="title" className="title" placeholder="Enter a Title"/>
           <input type="textarea" ref="description" className="description" placeholder="Enter a Description"/>
           <input type="text" ref="unlockCode" className="unlockCode" placeholder="Enter an Unlock Code"/>
