@@ -9,7 +9,7 @@ class LocationClues extends React.Component {
     return (
       <div className="location-clues">
         <section>
-          <img ref="image" className="image" src="#"/>
+          <img ref="image" className="image" src="{this.props.image}"/>
           <h2>{this.props.title}</h2>
           <ul>
             {this.props.clues.map(clue => <li>{clue}</li>)}

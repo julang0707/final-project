@@ -10,12 +10,9 @@ class LocationBefore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clues: [
-        'Hello',
-        'How are you?',
-        'Weeee!'
-      ],
-      title: ''
+      clues: [],
+      title: '',
+      image: ''
     }
   }
   componentDidMount() {
@@ -37,6 +34,7 @@ class LocationBefore extends React.Component {
   }
 
   render() {
+    let image = image;
     let {title, clues} = this.state;
     return (
       <div className="location-before">
@@ -44,7 +42,7 @@ class LocationBefore extends React.Component {
           <ActiveHeader/>
         </header>
         <section>
-          <LocationClues title={title} clues={clues}/>
+          <LocationClues title={title} clues={clues} image={image}/>
         </section>
         <section>
           <LocationDirections/>
