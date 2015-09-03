@@ -6,8 +6,9 @@ import Login from './components/login';
 import Register from './components/register';
 import GetStarted from './components/get-started';
 import Admin from './components/admin';
-import LocationBefore from './components/location-before'
-import LocationArrive from './components/location-arrive'
+import LocationBefore from './components/location-before';
+import LocationArrive from './components/location-arrive';
+import ActiveHeader from './components/active-header';
 
 
 

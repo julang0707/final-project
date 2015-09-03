@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-
+import objectAssign from 'object-assign';
 import Parse from '../parse';
 import ActiveHeader from './active-header';
 import Location from '../location';

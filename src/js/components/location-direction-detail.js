@@ -4,12 +4,17 @@ import Parse from '../parse';
 
 class LocationDirectionDetails extends React.Component {
 
+  setStepHtml(step) {
+    return {
+      __html: step
+    };
+  }
   render() {
 
     return (
       <div className="direction-details">
         <ul>
-          {this.props.steps.reduce(step => <li>{step.instructions}</li>)}
+          {this.props.steps.map((step) => <li dangerouslySetInnerHTML={this.setStepHtml(step)}></li>, this)}
         </ul>
       </div>
     )

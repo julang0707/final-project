@@ -18,8 +18,8 @@ class MainHeader extends React.Component {
           <a href="#" className="navigation-menu-button" id="js-mobile-menu">Menu</a>
           <nav role="navigation">
             <ul id="js-navigation-menu" className="navigation-menu show">
-              <li className="nav-link"><a href="javascript:void(0)">The Details</a></li>
-              <li className="nav-link"><a href="javascript:void(0)">Login</a></li>
+              <li className="nav-link"><a href="#">The Details</a></li>
+              <li className="nav-link"><a href="/login">Login</a></li>
             </ul>
           </nav>
         </div>

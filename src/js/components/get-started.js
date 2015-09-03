@@ -7,6 +7,11 @@ import ActiveHeader from './active-header';
 import User from '../user';
 
 class GetStarted extends React.Component {
+
+  onSubmit() {
+    this.context.router.transitionTo('before');
+  }
+
   render() {
     let message = "Please login.";
 
@@ -21,7 +26,7 @@ class GetStarted extends React.Component {
         </header>
         <section>
           <h2>{message}</h2>
-          <button ref="started">Get Started</button>
+          <button onClick={this.onSubmit.bind(this)} ref="started">Get Started</button>
         </section>
       </div>
     )
