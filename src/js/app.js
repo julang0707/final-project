@@ -8,7 +8,9 @@ import GetStarted from './components/get-started';
 import Admin from './components/admin';
 import LocationBefore from './components/location-before';
 import LocationArrive from './components/location-arrive';
-import ActiveHeader from './components/active-header';
+import Header from './components/header';
+import Resume from './components/resume';
+import Completed from './components/completed';
 
 
 
@@ -21,6 +23,8 @@ var routes = (
     <Route path="admin" name="admin" handler={Admin} />
     <Route path="before" name="before" handler={LocationBefore} />
     <Route path="arrive" name="arrive" handler={LocationArrive} />
+    <Route path="resume" name="resume" handler={Resume} />
+    <Route path="completed" name="completed" handler={Completed} />
   </Route>
 );
 

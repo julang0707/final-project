@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import objectAssign from 'object-assign';
 import Parse from '../parse';
-import ActiveHeader from './active-header';
+
 import Location from '../location';
 import LocationDetails from "./location-details";
 
@@ -22,10 +22,16 @@ class LocationArrive extends React.Component {
     var self = this;
     query.get("nMTsgkyWXx", {
       success: function(results) {
+        console.log(results);
+        let image = results.attributes.image._url
         let location = objectAssign({}, results.attributes, {
           id: results.id
         });
+        console.log(location);
+        console.log(image);
         self.setState(location);
+        console.log(image);
+        console.log(location);
       },
       error: function(object, error) {
         // The object was not retrieved successfully.
@@ -35,13 +41,11 @@ class LocationArrive extends React.Component {
   }
 
   render() {
-    let image = image;
+    let image = Location.get("image");
+    console.log(image);
     let {title, description, unlockCode, unlockQuestion} = this.state;
     return (
       <div className="location-arrive">
-        <header>
-          <ActiveHeader/>
-        </header>
         <section>
           <LocationDetails title={title} description={description} unlockCode={unlockCode} image={image} unlockQuestion={unlockQuestion}/>
         </section>

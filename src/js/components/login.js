@@ -2,7 +2,6 @@ import React from 'react';
 
 import Parse from '../parse';
 import User from '../user';
-import MainHeader from './main-header';
 
 class Login extends React.Component {
 
@@ -31,9 +30,6 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-        <header>
-          <MainHeader/>
-        </header>
         <section>
           <h2>Login</h2>
           <input type="email" ref="username" className="email" placeholder="Email"/>

@@ -1,15 +1,21 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import $ from 'jquery';
 
-import Parse from '../parse';
-import User from '../user';
-
 var FontAwesome = require('react-fontawesome');
+import User from '../user';
+import LoginButton from './login-button';
+import LogoutButton from './logout-button';
 
-class ActiveHeader extends React.Component {
-
+class Header extends React.Component {
 
   render() {
+    var loginButton;
+    if (User.loggedIn) {
+      loginButton = <LogoutButton />;
+    } else {
+      loginButton = <LoginButton />;
+    }
+
     return(
       <header className="navigation" role="banner">
         <div className="navigation-wrapper">
@@ -24,7 +30,7 @@ class ActiveHeader extends React.Component {
           <nav role="navigation">
             <ul id="js-navigation-menu" className="navigation-menu show">
               <li className="nav-link"><a href="#">The Details</a></li>
-              <li className="nav-link" ><a href="#">Logout</a></li>
+              <li className="nav-link">{loginButton}</li>
             </ul>
           </nav>
         </div>
@@ -33,7 +39,7 @@ class ActiveHeader extends React.Component {
   }
 }
 
-ActiveHeader.contextTypes = {
+Header.contextTypes = {
     router: React.PropTypes.func
 };
 
@@ -51,4 +57,4 @@ $(document).ready(function() {
   });
 });
 
-export default ActiveHeader;
+export default Header;

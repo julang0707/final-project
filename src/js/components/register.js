@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import Parse from '../parse';
-import MainHeader from './main-header';
+import User from '../User';
 
 class Register extends React.Component {
 
@@ -43,9 +43,6 @@ class Register extends React.Component {
 
     return (
       <div className="register">
-        <header>
-          <MainHeader/>
-        </header>
         <section>
           <h2>Register</h2>
           <input type="text" ref="firstName" className="first-name" placeholder="First Name"/>
