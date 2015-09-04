@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import objectAssign from 'object-assign';
 import Parse from '../parse';
-import ActiveHeader from './active-header';
+
 import Location from '../location';
 import LocationClues from './location-clues';
 import LocationDirections from './location-directions';
@@ -21,16 +21,10 @@ class LocationBefore extends React.Component {
     var self = this;
     query.get("nMTsgkyWXx", {
       success: function(results) {
-        console.log(results);
-        let image = results.attributes.image._url
         let location = objectAssign({}, results.attributes, {
           id: results.id,
         });
-        console.log(image);
         self.setState(location);
-        self.setState({
-          image: image
-        });
       },
       error: function(object, error) {
         // The object was not retrieved successfully.
@@ -40,14 +34,11 @@ class LocationBefore extends React.Component {
   }
 
   render() {
-    let {title, clues, image} = this.state;
+    let {title, clues} = this.state;
     return (
       <div className="location-before">
-        <header>
-          <ActiveHeader/>
-        </header>
         <section>
-          <LocationClues title={title} clues={clues} image={image}/>
+          <LocationClues title={title} clues={clues}/>
         </section>
         <section>
           <LocationDirections/>

@@ -2,9 +2,20 @@ import React from 'react';
 import $ from 'jquery';
 
 var FontAwesome = require('react-fontawesome');
+import User from '../user';
+import LoginButton from './login-button';
+import LogoutButton from './logout-button';
 
-class MainHeader extends React.Component {
+class Header extends React.Component {
+
   render() {
+    var loginButton;
+    if (User.loggedIn) {
+      loginButton = <LogoutButton />;
+    } else {
+      loginButton = <LoginButton />;
+    }
+
     return(
       <header className="navigation" role="banner">
         <div className="navigation-wrapper">
@@ -19,7 +30,7 @@ class MainHeader extends React.Component {
           <nav role="navigation">
             <ul id="js-navigation-menu" className="navigation-menu show">
               <li className="nav-link"><a href="#">The Details</a></li>
-              <li className="nav-link"><a href="/login">Login</a></li>
+              <li className="nav-link">{loginButton}</li>
             </ul>
           </nav>
         </div>
@@ -27,6 +38,10 @@ class MainHeader extends React.Component {
     )
   }
 }
+
+Header.contextTypes = {
+    router: React.PropTypes.func
+};
 
 $(document).ready(function() {
   var menuToggle = $('#js-mobile-menu').unbind();
@@ -42,4 +57,4 @@ $(document).ready(function() {
   });
 });
 
-export default MainHeader;
+export default Header;

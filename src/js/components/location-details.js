@@ -16,7 +16,7 @@ class LocationDetails extends React.Component {
     return (
       <div className="location-details">
         <section>
-          <img ref="image" className="image" src="{this.props.image}"/>
+          <img ref="image" className="image" src={this.props.image}/>
           <h2 ref="title" className="title">{this.props.title}</h2>
           <p ref="description" className="description">{this.props.description}</p>
           <h3 ref="question" className="question">{this.props.unlockQuestion}</h3>

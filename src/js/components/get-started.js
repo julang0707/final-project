@@ -3,7 +3,6 @@ import Parse from '../parse';
 
 var FontAwesome = require('react-fontawesome');
 
-import ActiveHeader from './active-header';
 import User from '../user';
 
 class GetStarted extends React.Component {
@@ -21,9 +20,6 @@ class GetStarted extends React.Component {
 
     return (
       <div className="getstarted">
-        <header>
-          <ActiveHeader/>
-        </header>
         <section>
           <h2>{message}</h2>
           <p>You're about to go on a fun adventure through Downtown Nashville. There are 10 stops on the adventure.  Here's what you need to know.</p>

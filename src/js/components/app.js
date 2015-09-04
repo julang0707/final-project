@@ -1,17 +1,23 @@
 import React from 'react';
 import Router, { RouteHandler } from 'react-router';
 
-import Footer from './footer'
+import Footer from './footer';
+import Header from './header';
 
 class HuntApp extends React.Component {
 
   render() {
     return (
       <div className="app-container">
+        <header>
+          <Header/>
+        </header>
         <main>
           <RouteHandler {...this.props}/>
         </main>
-        <Footer/>
+        <footer>
+          <Footer/>
+        </footer>
       </div>
     )
   }
