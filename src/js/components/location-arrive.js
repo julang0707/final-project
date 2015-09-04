@@ -25,7 +25,8 @@ class LocationArrive extends React.Component {
         console.log(results);
         let image = results.attributes.image._url
         let location = objectAssign({}, results.attributes, {
-          id: results.id
+          id: results.id,
+          image: image
         });
         console.log(location);
         console.log(image);
@@ -41,9 +42,8 @@ class LocationArrive extends React.Component {
   }
 
   render() {
-    let image = Location.get("image");
     console.log(image);
-    let {title, description, unlockCode, unlockQuestion} = this.state;
+    let {title, description, unlockCode, unlockQuestion, image} = this.state;
     return (
       <div className="location-arrive">
         <section>
