@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import Parse from '../parse';
+import MainHeader from './main-header';
 
 class Register extends React.Component {
 

@@ -1,3 +1,5 @@
+import React, {PropTypes} from 'react';
+
 class User {
   constructor() {
     this.loggedIn = false;
@@ -15,6 +17,7 @@ class User {
 
   logout() {
     this.loggedIn = false;
+    return this;
   }
 
   setData(data) {
@@ -27,5 +30,9 @@ class User {
   }
 
 }
+
+User.contextTypes = {
+    router: React.PropTypes.func
+};
 
 export default new User();

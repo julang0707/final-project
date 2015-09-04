@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import $ from 'jquery';
 
 import Parse from '../parse';
@@ -7,6 +7,10 @@ import User from '../user';
 var FontAwesome = require('react-fontawesome');
 
 class ActiveHeader extends React.Component {
+  onLogout() {
+    Parse.User.logOut();
+    this.context.router.transitionTo('login');
+  }
 
   render() {
     return(
@@ -23,7 +27,7 @@ class ActiveHeader extends React.Component {
           <nav role="navigation">
             <ul id="js-navigation-menu" className="navigation-menu show">
               <li className="nav-link"><a href="#">The Details</a></li>
-              <li className="nav-link"><a href="#">Logout</a></li>
+              <li className="nav-link" onClick={this.onLogout.bind(this)}><a href="#">Logout</a></li>
             </ul>
           </nav>
         </div>
@@ -31,6 +35,10 @@ class ActiveHeader extends React.Component {
     )
   }
 }
+
+ActiveHeader.contextTypes = {
+    router: React.PropTypes.func
+};
 
 $(document).ready(function() {
   var menuToggle = $('#js-mobile-menu').unbind();
