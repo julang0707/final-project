@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 
 var FontAwesome = require('react-fontawesome');
-import User from '../user';
+import User from '../../user';
 import LoginButton from './login-button';
 import LogoutButton from './logout-button';
 

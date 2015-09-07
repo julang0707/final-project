@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import objectAssign from 'object-assign';
 
-import Parse from '../parse';
+import Parse from '../../parse';
 import LocationDirectionDetails from './location-direction-detail';
 
 
@@ -14,9 +14,9 @@ class LocationDirections extends React.Component {
   }
   componentDidMount() {
     var directionsService = new google.maps.DirectionsService;
-    var start = '4301 Saunders Ave, Nashville, TN';
-    var end = '613 Ewing Ave Nasville, TN';
     var self = this;
+    var start = '4301 Saunders Ave, Nashville, TN';
+    var end = '613 Ewing Ave Nashville, TN';
     directionsService.route({
       origin: start,
       destination: end,
@@ -27,7 +27,7 @@ class LocationDirections extends React.Component {
         let steps = instructions.map(step => {
           return step.instructions;
         });
-        
+
         self.setState({
           steps: steps
         });

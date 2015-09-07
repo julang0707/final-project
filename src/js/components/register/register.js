@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
-import Parse from '../parse';
-import User from '../User';
+import Parse from '../../parse';
+import User from '../../User';
 
 class Register extends React.Component {
 

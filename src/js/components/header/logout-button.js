@@ -1,5 +1,5 @@
 import React from 'react';
-import Parse from '../parse';
+import Parse from '../../parse';
 
 class LogoutButton extends React.Component {
   onLogout() {
