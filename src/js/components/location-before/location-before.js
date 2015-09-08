@@ -12,7 +12,8 @@ class LocationBefore extends React.Component {
     this.state = {
       clues: [],
       title: '',
-      image: ''
+      image: '',
+      location: '',
     }
   }
   componentDidMount() {
@@ -24,7 +25,6 @@ class LocationBefore extends React.Component {
         let activeLocation = objectAssign({}, child[0].attributes, {
           id: child.id,
         });
-        console.log(activeLocation);
         self.setState(activeLocation);
       },
       error: function(error) {
@@ -33,9 +33,10 @@ class LocationBefore extends React.Component {
     });
   }
 
+
   render() {
-    console.log(this.state.location);
     let {title, clues, location} = this.state;
+
     return (
       <div className="location-before">
         <section>
