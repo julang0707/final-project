@@ -4,6 +4,10 @@ import Parse from '../../parse';
 
 class LocationDirectionDetails extends React.Component {
 
+  onSubmit() {
+    this.context.router.transitionTo('arrive');
+  }
+
   setStepHtml(step) {
     return {
       __html: step
@@ -16,6 +20,7 @@ class LocationDirectionDetails extends React.Component {
         <ul>
           {this.props.steps.map((step) => <li dangerouslySetInnerHTML={this.setStepHtml(step)}></li>, this)}
         </ul>
+        <button onClick={this.onSubmit.bind(this)} ref="started">I've Arrived</button>
       </div>
     )
   }

@@ -10,7 +10,7 @@ class GetStarted extends React.Component {
   onSubmit() {
     var Location = Parse.Object.extend("Locations");
     var query = new Parse.Query(Location);
-    query.equalTo("order", 1);
+    query.equalTo("order", User.currentOrder);
     query.find({
       success: function(results) {
         var user = Parse.User.current();

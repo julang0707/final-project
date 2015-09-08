@@ -7,6 +7,7 @@ class User {
     this.firstName = null;
     this.lastName = null;
     this.admin = false;
+    this.currentOrder = 1;
 
   }
 

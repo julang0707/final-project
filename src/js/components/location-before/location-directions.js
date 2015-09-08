@@ -9,32 +9,38 @@ class LocationDirections extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      steps: []
+      steps: [],
     };
   }
-  componentDidMount() {
-    var directionsService = new google.maps.DirectionsService;
-    var self = this;
-    var start = '4301 Saunders Ave, Nashville, TN';
-    var end = '613 Ewing Ave Nashville, TN';
-    directionsService.route({
-      origin: start,
-      destination: end,
-      travelMode: google.maps.TravelMode.WALKING
-    }, function(response, status) {
-      if (status === google.maps.DirectionsStatus.OK) {
-        let instructions = response.routes[0].legs[0].steps;
-        let steps = instructions.map(step => {
-          return step.instructions;
-        });
 
-        self.setState({
-          steps: steps
-        });
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(position => {
+      let {latitude, longitude} = this.props.location;
+      let start = `${position.coords.latitude}, ${position.coords.longitude}`;
+      let end = `${latitude}, ${longitude}`;
+      let directionsService = new google.maps.DirectionsService;
+
+      directionsService.route({
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.WALKING
+      }, (response, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          let instructions = response.routes[0].legs[0].steps;
+          let steps = instructions.map(step => {
+            return step.instructions;
+          });
+
+          this.setState({
+            steps: steps
+          });
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
+
     });
+
   }
 
   render () {
