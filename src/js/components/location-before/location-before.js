@@ -25,8 +25,6 @@ class LocationBefore extends React.Component {
           id: child.id,
         });
         console.log(activeLocation);
-        let latitude = activeLocation.location._latitude;
-        console.log(latitude);
         self.setState(activeLocation);
       },
       error: function(error) {
