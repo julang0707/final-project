@@ -1,13 +1,28 @@
 import React, {PropTypes} from 'react';
-import Parse from '../parse';
+import Parse from '../../parse';
 
 var FontAwesome = require('react-fontawesome');
 
-import User from '../user';
+import User from '../../user';
 
 class GetStarted extends React.Component {
 
   onSubmit() {
+    var Location = Parse.Object.extend("Locations");
+    var query = new Parse.Query(Location);
+    query.equalTo("order", 1);
+    query.find({
+      success: function(results) {
+        var user = Parse.User.current();
+        var relation = user.relation("activeLocation");
+        relation.add(results);
+        user.save();
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+
     this.context.router.transitionTo('before');
   }
 

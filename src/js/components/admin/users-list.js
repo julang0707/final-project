@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
-import Parse from '../parse';
-import User from '../user';
+import Parse from '../../parse';
+import User from '../../user';
 
 class UsersList extends React.Component {
 

@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 
-import Parse from '../parse';
+import Parse from '../../parse';
 import Admin from './admin';
-import Location from '../location';
+import Location from '../../location';
 
 class AddLocation extends React.Component {
 

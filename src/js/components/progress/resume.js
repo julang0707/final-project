@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
-import Parse from '../parse';
+import Parse from '../../parse';
 
 var FontAwesome = require('react-fontawesome');
 
-import User from '../user';
+import User from '../../user';
 
 class Resume extends React.Component {
 

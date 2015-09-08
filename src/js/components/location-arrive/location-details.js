@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-import Parse from '../parse';
+import Parse from '../../parse';
 
 class LocationDetails extends React.Component {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Router, { RouteHandler } from 'react-router';
 
-import Footer from './footer';
-import Header from './header';
+import Footer from './footer/footer';
+import Header from './header/header';
 
 class HuntApp extends React.Component {
 
