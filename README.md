@@ -1,14 +1,10 @@
-# Iron Yard Front End Boilerplate
+# The Haystack
+The Haystack is a 10-stop interactive mystery scavenger hunt through downtown Nashville. Users will enter a code to unlock the next location and then be given the walking directions to the next location.
 
+This project was built as my final project for the Front End Engineering class at The Iron Yard.  It was built using React and Parse for the backend.
 
 ## Installation
 
-- `cd ~/dev`
-- `git clone git@github.com:theironyard-frontend-nashville/frontend-boilerplate.git <projectname>` replacing <projectname> with your own project name.
-- `cd <projectname>`
-- `rm -rf .git`
-- `git init`
--  Create a new repo on Github.com and [add the remote](https://help.github.com/articles/adding-a-remote/). 
 
 - `npm install`
   - This will install the node dependencies for you, and will also install any bower components.
@@ -46,3 +42,6 @@ If you want to compile your SASS (.scss files), then run the command:
 
 If you want to compile your ES6/ES7 (ES2015/17) Javascript code to ES5 to use new Javascript features now before the browser supports them, then run this command:
 `gulp babel`
+
+## Deploy your project to GitHub Pages
+If you want to deploy your project (dist folder) to GitHub pages, then run this command: gulp deploy
