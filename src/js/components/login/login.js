@@ -19,7 +19,7 @@ class Login extends React.Component {
     Parse.User.logIn(data.username, data.password, {
       success: function(user) {
         User.setData(user).login();
-        self.context.router.transitionTo('getstarted');
+        self.context.router.transitionTo('launch');
       },
       error: function(user, error) {
         alert("Error: " + error.code + " " + error.message);

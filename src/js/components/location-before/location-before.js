@@ -27,7 +27,6 @@ class LocationBefore extends React.Component {
     query.equalTo("order", User.currentOrder);
     query.find({
       success: function(child) {
-        console.log(child);
         let activeLocation = objectAssign({}, child[0].attributes, {
           id: child.id,
         });
@@ -42,7 +41,6 @@ class LocationBefore extends React.Component {
 
   render() {
     let {title, clues, location} = this.state;
-
     let message = "Please login.";
 
     if (User.loggedIn) {
