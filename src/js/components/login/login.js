@@ -13,7 +13,7 @@ class Login extends React.Component {
     }
 
     if (data.username && data.password && data.password === User.password) {
-      alert('Please complete the registration form.')
+      alert('Oops! Your email or password is wrong. Try again!')
       return;
     }
     Parse.User.logIn(data.username, data.password, {
@@ -22,7 +22,7 @@ class Login extends React.Component {
         self.context.router.transitionTo('getstarted');
       },
       error: function(user, error) {
-        // The login failed. Check error to see why.
+        alert("Error: " + error.code + " " + error.message);
       }
     });
   }

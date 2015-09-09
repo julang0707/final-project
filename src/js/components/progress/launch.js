@@ -1,23 +1,13 @@
 import React, {PropTypes} from 'react';
-import objectAssign from 'object-assign';
 import Parse from '../../parse';
 
+var FontAwesome = require('react-fontawesome');
+
 import User from '../../user';
-import Location from '../../location';
-import LocationClues from './location-clues';
-import LocationDirections from './location-directions';
+import Login from '../login/login';
 
-class LocationBefore extends React.Component {
+class Launch extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      clues: [],
-      title: '',
-      image: '',
-      location: '',
-    }
-  }
   componentDidMount() {
     console.log(User.currentOrder);
     var user = Parse.User.current();
@@ -39,36 +29,36 @@ class LocationBefore extends React.Component {
     });
   }
 
-
   render() {
-    let {title, clues, location} = this.state;
-
     let message = "Please login.";
 
-    if (User.loggedIn) {
-      let message = '';
+    if (activeLocation === null) {
+      message = `Let's Get Started, ${User.firstName}.`;
       return (
-        <div className="location-before">
+        <div className="getstarted">
           <section>
-            <LocationClues title={title} clues={clues}/>
-          </section>
-          <section>
-            <LocationDirections location={location} />
+            <h2>{message}</h2>
+            <p>You're about to go on a fun adventure through Downtown Nashville. There are 10 stops on the adventure.  Here's what you need to know.</p>
+            <ul>
+              <li>Walking directions from one stop to the next are provided</li>
+              <li>Enter an unlock code to reveal the next location</li>
+              <li>Have fun and enjoy Nashville!</li>
+            </ul>
+            <button onClick={this.onSubmit.bind(this)} ref="started">Get Started</button>
           </section>
         </div>
       )
     }
-
     return (
-      <div className="location-before">
-        {message}
+      <div className="getstarted">
+          {message}
       </div>
     )
   }
 };
 
-LocationBefore.contextTypes = {
+Launch.contextTypes = {
     router: React.PropTypes.func
 };
 
-export default LocationBefore;
+export default Launch;

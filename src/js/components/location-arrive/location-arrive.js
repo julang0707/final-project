@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import objectAssign from 'object-assign';
 import Parse from '../../parse';
 
+import User from '../../user';
 import Location from '../../location';
 import LocationDetails from "./location-details";
 
@@ -17,17 +18,19 @@ class LocationArrive extends React.Component {
     }
   }
   componentDidMount() {
-    var Location = Parse.Object.extend("Locations");
-    var query = new Parse.Query(Location);
+    var user = Parse.User.current();
+    var relation = user.relation("activeLocation");
     var self = this;
-    query.get("nMTsgkyWXx", {
-      success: function(results) {
-        let image = results.attributes.image._url
-        let location = objectAssign({}, results.attributes, {
-          id: results.id,
+    var query = relation.query();
+    query.equalTo("order", User.currentOrder);
+    query.find({
+      success: function(child) {
+        let image = child[0].attributes.image._url
+        let activeLocation = objectAssign({}, child[0].attributes, {
+          id: child.id,
           image: image
         });
-        self.setState(location);
+        self.setState(activeLocation);
       },
       error: function(object, error) {
         alert("Error: " + error.code + " " + error.message);
@@ -37,11 +40,22 @@ class LocationArrive extends React.Component {
 
   render() {
     let {title, description, unlockCode, unlockQuestion, image} = this.state;
+
+    let message = "Please login.";
+
+    if (User.loggedIn) {
+      let message = '';
+      return (
+        <div className="location-arrive">
+          <section>
+            <LocationDetails title={title} description={description} unlockCode={unlockCode} image={image} unlockQuestion={unlockQuestion}/>
+          </section>
+        </div>
+      )
+    }
     return (
       <div className="location-arrive">
-        <section>
-          <LocationDetails title={title} description={description} unlockCode={unlockCode} image={image} unlockQuestion={unlockQuestion}/>
-        </section>
+        {message}
       </div>
     )
   }
