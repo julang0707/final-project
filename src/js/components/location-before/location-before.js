@@ -26,13 +26,13 @@ class LocationBefore extends React.Component {
     var query = relation.query();
     query.equalTo("order", User.currentOrder);
     query.find({
-      success: function(child) {
+      success: (child) => {
         let activeLocation = objectAssign({}, child[0].attributes, {
           id: child.id,
         });
         self.setState(activeLocation);
       },
-      error: function(error) {
+      error: (error) => {
         alert("Error: " + error.code + " " + error.message);
       }
     });
@@ -58,9 +58,7 @@ class LocationBefore extends React.Component {
     }
 
     return (
-      <div className="location-before">
-        {message}
-      </div>
+      this.context.router.transitionTo('login')
     )
   }
 };

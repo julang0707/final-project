@@ -16,20 +16,17 @@ class Login extends React.Component {
       alert('Oops! Your email or password is wrong. Try again!')
       return;
     }
-    if(!User.checkLogin()){
-      Parse.User.logIn(data.username, data.password, {
-        success: function(user) {
-          User.setData(user).login();
-          self.context.router.transitionTo('launch');
-        },
-        error: function(user, error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
-      });
-    } else {
-      // transition to dashboard
-    }
+    Parse.User.logIn(data.username, data.password, {
+      success: (user) => {
+        User.setData(user).login();
+        self.context.router.transitionTo('launch');
+      },
+      error: (user, error) => {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
   }
+
 
   render() {
     return (
@@ -46,7 +43,7 @@ class Login extends React.Component {
 }
 
 Login.contextTypes = {
-    router: React.PropTypes.func
+  router: React.PropTypes.func
 };
 
 export default Login;

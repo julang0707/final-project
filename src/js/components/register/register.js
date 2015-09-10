@@ -28,11 +28,11 @@ class Register extends React.Component {
     user.set("lastName", data.lastName);
 
     user.signUp(null, {
-      success: function(user) {
+      success: (user) => {
         User.setData(user).login();
         self.context.router.transitionTo('launch');
       },
-      error: function(user, error) {
+      error: (user, error) => {
         // Show the error message somewhere and let the user try again.
         alert("Error: " + error.code + " " + error.message);
       }

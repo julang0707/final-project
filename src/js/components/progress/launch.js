@@ -30,9 +30,9 @@ class Launch extends React.Component {
       )
     }
     return (
-      <div className="getstarted">
-          {message}
-      </div>
+
+      this.context.router.transitionTo('login')
+
     )
   }
 };

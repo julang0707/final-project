@@ -6,33 +6,50 @@ import User from '../../user';
 class LocationDetails extends React.Component {
 
   onSubmit() {
-    let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
-    if (unlockCode === this.props.unlockCode) {
-      console.log(User.currentOrder);
-      User.currentOrder += 1;
-      this.setState({
-        currentOrder: User.currentOrder
-      });
-      console.log(User.currentOrder);
-      var Location = Parse.Object.extend("Locations");
-      var query = new Parse.Query(Location);
-      query.equalTo("order", User.currentOrder);
-      query.find({
-        success: (results) => {
-          var user = Parse.User.current();
-          var relation = user.relation("activeLocation");
-          relation.add(results);
-          user.save().then(() => {
-            this.context.router.transitionTo('before');
-          });
-        },
-        error: (error) => {
-          alert("Error: " + error.code + " " + error.message);
-        }
-      });
+    if(User.currentOrder === 11) {
+      this.context.router.transitionTo('completed');
     } else {
-      alert("Oops! Wrong code! Try again");
+      let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
+      if (unlockCode === this.props.unlockCode) {
+        var user = Parse.User.current();
+        var relation = user.relation("activeLocation");
+        var query = relation.query();
+        query.equalTo("order", User.currentOrder)
+        query.find({
+          success: (results) => {
+            relation.remove(results);
+          },
+          error: (error) => {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+
+        User.currentOrder += 1;
+        this.setState({
+          currentOrder: User.currentOrder
+        });
+
+        var Location = Parse.Object.extend("Locations");
+        var query = new Parse.Query(Location);
+        query.equalTo("order", User.currentOrder);
+        query.find({
+          success: (results) => {
+            var user = Parse.User.current();
+            var relation = user.relation("activeLocation");
+            relation.add(results);
+            user.save().then(() => {
+              this.context.router.transitionTo('before');
+            });
+          },
+          error: (error) => {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      } else {
+        alert("Oops! Wrong code! Try again");
+      }
     }
+
   }
 
   render() {

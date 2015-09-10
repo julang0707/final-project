@@ -24,7 +24,7 @@ class LocationArrive extends React.Component {
     var query = relation.query();
     query.equalTo("order", User.currentOrder);
     query.find({
-      success: function(child) {
+      success: (child) => {
         let image = child[0].attributes.image._url
         let activeLocation = objectAssign({}, child[0].attributes, {
           id: child.id,
@@ -32,7 +32,7 @@ class LocationArrive extends React.Component {
         });
         self.setState(activeLocation);
       },
-      error: function(object, error) {
+      error: (object, error) => {
         alert("Error: " + error.code + " " + error.message);
       }
     });
@@ -54,9 +54,7 @@ class LocationArrive extends React.Component {
       )
     }
     return (
-      <div className="location-arrive">
-        {message}
-      </div>
+      this.context.router.transitionTo('login')
     )
   }
 };
