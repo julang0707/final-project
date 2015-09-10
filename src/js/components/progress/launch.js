@@ -49,11 +49,11 @@ class Launch extends React.Component {
         </div>
       )
     }
-    if (User.loggedIn) {
+    if (User.loggedIn && this.state.order !== '') {
       message = `Let's Continue, ${User.firstName}.`;
       return (
         <div className="resume">
-          <Resume/>
+          <Resume order={order}/>
         </div>
       )
     }

@@ -7,7 +7,17 @@ import User from '../../user';
 
 class Resume extends React.Component {
 
+  constructor(props) {
+    super(props);
+    let user = User.currentOrder;
+    this.state = {
+      user: this.props.order
+    }
+  }
+
   onSubmit() {
+    console.log(this.props.order);
+    console.log(User.currentOrder);
     this.context.router.transitionTo('before');
   }
 
