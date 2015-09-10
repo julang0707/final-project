@@ -18,6 +18,7 @@ class LocationBefore extends React.Component {
       location: '',
     }
   }
+  
   componentDidMount() {
     console.log(User.currentOrder);
     var user = Parse.User.current();

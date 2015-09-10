@@ -10,6 +10,18 @@ import GetStarted from './get-started';
 import Resume from './resume';
 
 class Launch extends React.Component {
+  componentDidMount() {
+    var user = Parse.Object.extend("User");
+    var query = new Parse.Query(User);
+    query.get("activeLocation", {
+      success: function(results) {
+        console.log(results);
+      },
+      error: function(object, error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+  }
 
   render() {
     let message = "Please login.";
@@ -21,7 +33,7 @@ class Launch extends React.Component {
         </div>
       )
     }
-    if (User.loggedIn && User.CurrentLocation > 1) {
+    if (User.loggedIn) {
       message = `Let's Continue, ${User.firstName}.`;
       return (
         <div className="resume">
