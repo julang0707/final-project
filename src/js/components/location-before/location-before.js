@@ -18,9 +18,8 @@ class LocationBefore extends React.Component {
       location: '',
     }
   }
-  
+
   componentDidMount() {
-    console.log(User.currentOrder);
     var user = Parse.User.current();
     var relation = user.relation("activeLocation");
     var self = this;
