@@ -1,13 +1,36 @@
 import React, {PropTypes} from 'react';
 
 import Parse from '../../parse';
+import User from '../../user';
 
 class LocationDetails extends React.Component {
 
   onSubmit() {
-    let unlockCode = React.findDOMNode(this.refs.unlockcode).value;
+    let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
     if (unlockCode === this.props.unlockCode) {
+      console.log(User.currentOrder);
+      User.currentOrder += 1;
+      this.setState({
+        currentOrder: User.currentOrder
+      });
+      console.log(User.currentOrder);
+      var Location = Parse.Object.extend("Locations");
+      var query = new Parse.Query(Location);
+      query.equalTo("order", User.currentOrder);
+      query.find({
+        success: function(results) {
+          var user = Parse.User.current();
+          var relation = user.relation("activeLocation");
+          relation.add(results);
+          user.save();
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
       this.context.router.transitionTo('before');
+    } else {
+      alert("Oops! Wrong code! Try again");
     }
   }
 

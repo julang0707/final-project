@@ -30,7 +30,7 @@ class Register extends React.Component {
     user.signUp(null, {
       success: function(user) {
         User.setData(user).login();
-        self.context.router.transitionTo('getstarted');
+        self.context.router.transitionTo('launch');
       },
       error: function(user, error) {
         // Show the error message somewhere and let the user try again.
