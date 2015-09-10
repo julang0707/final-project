@@ -13,18 +13,20 @@ class GetStarted extends React.Component {
     var query = new Parse.Query(Location);
     query.equalTo("order", User.currentOrder);
     query.find({
-      success: function(results) {
+      success: (results) => {
         var user = Parse.User.current();
         var relation = user.relation("activeLocation");
         relation.add(results);
-        user.save();
+        user.save().then(() => {
+          this.context.router.transitionTo('before');
+        });
       },
-      error: function(error) {
+      error: (error) => {
         alert("Error: " + error.code + " " + error.message);
       }
     });
 
-    this.context.router.transitionTo('before');
+
   }
 
   render() {
