@@ -9,10 +9,13 @@ class Resume extends React.Component {
 
   constructor(props) {
     super(props);
-    let user = User.currentOrder;
+    var user = Parse.User.current();
+    user.set("currentOrder", this.props.order);
+    console.log(user.get("currentOrder"));
     this.state = {
-      user: this.props.order
+      user: user
     }
+    console.log(user);
   }
 
   onSubmit() {

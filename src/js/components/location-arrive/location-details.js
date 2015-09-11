@@ -6,8 +6,25 @@ import User from '../../user';
 class LocationDetails extends React.Component {
 
   onSubmit() {
-    if(User.currentOrder === 11) {
-      this.context.router.transitionTo('completed');
+    console.log(User.currentOrder);
+    if(User.currentOrder === 10) {
+      let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
+      if (unlockCode === this.props.unlockCode) {
+        var user = Parse.User.current();
+        var relation = user.relation("activeLocation");
+        var query = relation.query();
+        query.equalTo("order", User.currentOrder)
+        query.find({
+          success: (results) => {
+            relation.remove(results).then(() => {
+              this.context.router.transitionTo('completed');
+            });
+          },
+          error: (error) => {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      }
     } else {
       let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
       if (unlockCode === this.props.unlockCode) {
@@ -49,11 +66,9 @@ class LocationDetails extends React.Component {
         alert("Oops! Wrong code! Try again");
       }
     }
-
   }
 
   render() {
-
     return (
       <div className="location-details">
         <section>
@@ -70,7 +85,7 @@ class LocationDetails extends React.Component {
 };
 
 LocationDetails.contextTypes = {
-    router: React.PropTypes.func
+  router: React.PropTypes.func
 };
 
 export default LocationDetails;
