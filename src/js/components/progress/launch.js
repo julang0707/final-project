@@ -29,7 +29,6 @@ class Launch extends React.Component {
           id: child.id,
           order: order
         });
-        console.log(order);
         self.setState(currentLocation);
       },
       error: function(object, error) {

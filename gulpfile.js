@@ -6,6 +6,7 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var del = require('del');
 var Karma = require('karma');
+var ghPages = require('gulp-gh-pages');
 var webserver = require('gulp-webserver');
 
 gulp.task('lint', function() {
@@ -61,6 +62,11 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       fallback: 'index.html'
     }));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 

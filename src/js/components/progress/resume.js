@@ -16,8 +16,6 @@ class Resume extends React.Component {
   }
 
   onSubmit() {
-    console.log(this.props.order);
-    console.log(User.currentOrder);
     this.context.router.transitionTo('before');
   }
 
