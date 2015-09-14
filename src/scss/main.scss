@@ -17,6 +17,7 @@
 @import 'partials/button';
 @import 'partials/forms';
 @import 'partials/login';
+@import 'partials/register';
 
 // Vendor
 @import 'vendor/image-slider';
@@ -34,4 +35,8 @@ a {
 
 a:hover {
   color: darken($accent-color-melon, 15%);
+}
+
+#slides {
+  display:none;
 }

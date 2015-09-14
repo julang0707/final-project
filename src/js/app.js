@@ -10,13 +10,15 @@ import LocationArrive from './components/location-arrive/location-arrive';
 import Header from './components/header/header';
 import Completed from './components/progress/completed';
 import Launch from './components/progress/launch';
+import Details from './components/progress/details';
 
 
 
 
 var routes = (
   <Route handler={HuntApp} path="/">
-    <DefaultRoute name="register" handler={Register} />
+    <Route path="register" name="register" handler={Register} />
+    <DefaultRoute name="details" handler={Details}/>
     <Route path="login" name="login" handler={Login} />
     <Route path="launch" name="launch" handler={Launch} />
     <Route path="admin" name="admin" handler={Admin} />

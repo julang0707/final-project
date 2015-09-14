@@ -12,7 +12,17 @@
     <!-- Third Party Libraries -->
 
     <!-- App Specific Files-->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/components/image-slider/jquery.slides.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/bundle.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#slides').slidesjs({
+          width: 940,
+          height: 528
+        });
+      });
+    </script>
   </body>
 </html>
