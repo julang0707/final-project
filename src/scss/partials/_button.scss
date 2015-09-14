@@ -1,0 +1,10 @@
+button {
+  background-color: $accent-color-melon;
+  padding: 0.45em 0.8em;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: darken($accent-color-melon, 5%);
+  color: $font-color
+}

@@ -10,10 +10,37 @@ import GetStarted from './get-started';
 import Resume from './resume';
 
 class Launch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      order: '',
+    }
+  }
+
+  componentDidMount() {
+    var user = Parse.User.current();
+    var relation = user.relation("activeLocation");
+    var self = this;
+    var query = relation.query();
+    query.find({
+      success: (child) => {
+        let order = child[0].attributes.order
+        let currentLocation = objectAssign({}, child[0].attributes, {
+          id: child.id,
+          order: order
+        });
+        self.setState(currentLocation);
+      },
+      error: function(object, error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+  }
 
   render() {
+    let {order} = this.state;
     let message = "Please login.";
-    if (User.loggedIn && User.currentOrder === 1) {
+    if (User.loggedIn && this.state.order === '') {
       message = `Let's Get Started, ${User.firstName}.`;
       return (
         <div className="getstarted">
@@ -21,18 +48,18 @@ class Launch extends React.Component {
         </div>
       )
     }
-    if (User.loggedIn && User.CurrentLocation > 1) {
+    if (User.loggedIn && this.state.order !== '') {
       message = `Let's Continue, ${User.firstName}.`;
       return (
         <div className="resume">
-          <Resume/>
+          <Resume order={order}/>
         </div>
       )
     }
     return (
-      <div className="getstarted">
-          {message}
-      </div>
+
+      this.context.router.transitionTo('login')
+
     )
   }
 };

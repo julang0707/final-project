@@ -17,15 +17,16 @@ class Login extends React.Component {
       return;
     }
     Parse.User.logIn(data.username, data.password, {
-      success: function(user) {
+      success: (user) => {
         User.setData(user).login();
         self.context.router.transitionTo('launch');
       },
-      error: function(user, error) {
+      error: (user, error) => {
         alert("Error: " + error.code + " " + error.message);
       }
     });
   }
+
 
   render() {
     return (
@@ -42,7 +43,7 @@ class Login extends React.Component {
 }
 
 Login.contextTypes = {
-    router: React.PropTypes.func
+  router: React.PropTypes.func
 };
 
 export default Login;

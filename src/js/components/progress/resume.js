@@ -7,6 +7,17 @@ import User from '../../user';
 
 class Resume extends React.Component {
 
+  constructor(props) {
+    super(props);
+    var user = Parse.User.current();
+    user.set("currentOrder", this.props.order);
+    console.log(user.get("currentOrder"));
+    this.state = {
+      user: user
+    }
+    console.log(user);
+  }
+
   onSubmit() {
     this.context.router.transitionTo('before');
   }

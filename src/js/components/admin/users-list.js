@@ -17,13 +17,13 @@ class UsersList extends React.Component {
     var users = Parse.Object.extend("User");
     var query = new Parse.Query(User);
     query.find({
-      success: function(results) {
+      success: (results) => {
         this.setState({
           data: results
         });
       },
 
-      error: function(error) {
+      error: (error) => {
         this.setState({
           data: []
         });
@@ -39,7 +39,7 @@ class UsersList extends React.Component {
     user.set("admin", data.admin);
 
     user.save(null, {
-      success: function(user) {
+      success: (user) => {
         user.set("admin", true);
       }
     });
