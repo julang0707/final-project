@@ -692,31 +692,26 @@ html, body {
     width: auto; } }
 
 .navigation {
-  background-color: #429894;
-  height: 45px; }
-  .navigation h1 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.2em;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-    float: left;
-    padding: 10px 0 0 10px; }
+  background-color: #35404F;
+  height: 60px; }
+  .navigation img {
+    height: 3em; }
   .navigation h2 {
     float: right;
     font-size: 1.1em;
     font-weight: 600;
-    padding: 10px 10px 0 0; }
+    padding: 13px 15px 0 0; }
 
 .footer {
-  background-color: #459f9b;
+  background-color: #35404F;
   text-align: center;
   padding: 10px 0; }
   .footer h3 {
     font-size: 1.1em;
     font-weight: 600; }
   .footer p {
-    font-size: .7em; }
+    font-size: .7em;
+    color: #fff; }
 
 button {
   background-color: #E45F56;
@@ -746,6 +741,69 @@ input {
 .gallery .item {
   background: #fff;
   margin: 0; }
+
+.intro {
+  padding: 20px 15px; }
+  .intro h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
+
+.getstarted {
+  padding: 20px 15px; }
+  .getstarted h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
+
+.resume {
+  padding: 20px 15px; }
+  .resume h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
+
+.location-details {
+  padding: 20px 15px; }
+  .location-details h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
+
+.arrive-leave {
+  opacity: 1; }
+
+.arrive-leave.arrive-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in; }
+
+.arrive-enter {
+  opacity: 0.01; }
+
+.arrive-enter.arrive-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in; }
+
+.arrive-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in; }
+
+.arrive-appear.arrive-appear-active {
+  opacity: 1; }
+
+.completed {
+  padding: 20px 15px; }
+  .completed h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
+
+.direction-details {
+  padding: 20px 15px; }
+  .direction-details h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
+
+.location-clues {
+  padding: 20px 15px; }
+  .location-clues h2 {
+    font-size: 1.1em;
+    font-weight: bold; }
 
 .gallery .control-operator:target ~ .controls .control-button {
   color: #ccc;
