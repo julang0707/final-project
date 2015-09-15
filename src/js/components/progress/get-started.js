@@ -1,22 +1,17 @@
 import React, {PropTypes} from 'react';
 import Parse from '../../parse';
 
-var FontAwesome = require('react-fontawesome');
-
-import User from '../../user';
-import Login from '../login/login';
-
 class GetStarted extends React.Component {
 
   onSubmit() {
-    var Location = Parse.Object.extend("Locations");
-    var query = new Parse.Query(Location);
-    query.equalTo("order", User.currentOrder);
+    let user = Parse.User.current();
+    let Location = Parse.Object.extend("Locations");
+    let query = new Parse.Query(Location);
+
+    query.equalTo("order", user.get('currentOrder'));
     query.find({
       success: (results) => {
-        var user = Parse.User.current();
-        var relation = user.relation("activeLocation");
-        relation.add(results);
+        user.set('currentOrder', 1);
         user.save().then(() => {
           this.context.router.transitionTo('before');
         });
@@ -25,15 +20,13 @@ class GetStarted extends React.Component {
         alert("Error: " + error.code + " " + error.message);
       }
     });
-
-
   }
 
   render() {
     let message = "Please login.";
-
-    if (User.loggedIn) {
-      message = `Let's Get Started, ${User.firstName}.`;
+    let user = Parse.User.current();
+    if (user) {
+      message = `Let's Get Started, ${user.get('firstName')}.`;
       return (
         <div className="getstarted">
           <section>

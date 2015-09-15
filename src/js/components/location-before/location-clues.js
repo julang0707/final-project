@@ -12,7 +12,7 @@ class LocationClues extends React.Component {
           <img ref="image" className="image" src="img/nashville.jpg"/>
           <h2>{this.props.title}</h2>
           <ul>
-            {this.props.clues.map(clue => <li>{clue}</li>)}
+            {this.props.clues.map((clue, i) => <li key={i}>{clue}</li>)}
           </ul>
         </section>
       </div>

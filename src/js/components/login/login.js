@@ -1,7 +1,5 @@
 import React from 'react';
-
 import Parse from '../../parse';
-import User from '../../user';
 
 class Login extends React.Component {
 
@@ -12,13 +10,12 @@ class Login extends React.Component {
       password: React.findDOMNode(this.refs.password).value
     }
 
-    if (data.username && data.password && data.password === User.password) {
+    if (!data.username && !data.password) {
       alert('Oops! Your email or password is wrong. Try again!')
       return;
     }
     Parse.User.logIn(data.username, data.password, {
       success: (user) => {
-        User.setData(user).login();
         self.context.router.transitionTo('launch');
       },
       error: (user, error) => {

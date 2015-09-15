@@ -2,10 +2,6 @@ import React, {PropTypes} from 'react';
 import Parse from '../../parse';
 import objectAssign from 'object-assign';
 
-var FontAwesome = require('react-fontawesome');
-
-import User from '../../user';
-import Login from '../login/login';
 import GetStarted from './get-started';
 import Resume from './resume';
 
@@ -13,54 +9,42 @@ class Launch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      order: '',
+      currentOrder: 0,
     }
   }
 
   componentDidMount() {
     var user = Parse.User.current();
-    var relation = user.relation("activeLocation");
-    var self = this;
-    var query = relation.query();
-    query.find({
-      success: (child) => {
-        let order = child[0].attributes.order
-        let currentLocation = objectAssign({}, child[0].attributes, {
-          id: child.id,
-          order: order
-        });
-        self.setState(currentLocation);
-      },
-      error: function(object, error) {
-        alert("Error: " + error.code + " " + error.message);
-      }
-    });
+
+
+    if (user) {
+      this.setState({
+        currentOrder: user.get('currentOrder')
+      });
+    }
   }
 
   render() {
-    let {order} = this.state;
+    let {currentOrder} = this.state;
     let message = "Please login.";
-    if (User.loggedIn && this.state.order === '') {
-      message = `Let's Get Started, ${User.firstName}.`;
+    let user = Parse.User.current();
+
+    if (user && !currentOrder) {
       return (
         <div className="getstarted">
           <GetStarted/>
         </div>
       )
     }
-    if (User.loggedIn && this.state.order !== '') {
-      message = `Let's Continue, ${User.firstName}.`;
+    if (user && currentOrder > 0) {
       return (
         <div className="resume">
-          <Resume order={order}/>
+          <Resume order={currentOrder}/>
         </div>
       )
     }
-    return (
-
-      this.context.router.transitionTo('login')
-
-    )
+    // this.context.router.transitionTo('login')
+    return (<div>Please login.</div>)
   }
 };
 

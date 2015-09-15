@@ -1,17 +1,21 @@
 import React, {PropTypes} from 'react';
 import Parse from '../../parse';
 
-var FontAwesome = require('react-fontawesome');
-
-import User from '../../user';
 
 class Completed extends React.Component {
+  componentDidMount() {
+    let user = Parse.User.current();
+    user.set('currentOrder', 0);
+    user.save();
+  }
 
   render() {
     let message = "Please login.";
+    let user = Parse.User.current();
 
-    if (User.loggedIn) {
-      message = `${User.firstName}, you completed The Haystack`;
+
+    if (user) {
+      message = `${user.get('firstName')}, you completed The Haystack`;
     }
 
     return (

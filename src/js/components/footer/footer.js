@@ -1,12 +1,11 @@
 import React from 'react';
-
-var FontAwesome = require('react-fontawesome');
+import Link from 'react-router';
 
 class Footer extends React.Component {
   render() {
     return (
       <footer className="footer">
-            <h3><a href="#">The Details</a></h3>
+            <h3><a href="/details">The Details</a></h3>
             <p>&copy; 2015 THE HAYSTACK</p>
       </footer>
     )

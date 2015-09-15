@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import objectAssign from 'object-assign';
 import Parse from '../../parse';
 
-import User from '../../user';
 import Location from '../../location';
 import LocationClues from './location-clues';
 import LocationDirections from './location-directions';
@@ -13,27 +12,34 @@ class LocationBefore extends React.Component {
     super(props);
     this.state = {
       clues: [],
-      title: '',
-      image: '',
-      location: '',
+      title: null,
+      image: null,
+      location: null
     }
   }
 
   componentDidMount() {
     var user = Parse.User.current();
-    var relation = user.relation("activeLocation");
-    var self = this;
-    var query = relation.query();
-    query.equalTo("order", User.currentOrder);
+    let Locations = Parse.Object.extend('Locations');
+    let query = new Parse.Query(Locations);
+    query.equalTo('order', user.get('currentOrder'));
+
     query.find({
-      success: (child) => {
-        let activeLocation = objectAssign({}, child[0].attributes, {
-          id: child.id,
-        });
-        self.setState(activeLocation);
+      success: (location) => {
+        if (location.length) {
+          this.setState({
+            clues: location[0].get('clues'),
+            title: location[0].get('title'),
+            image: location[0].get('image'),
+            location: location[0].get('location')
+          });
+        } else {
+          this.context.router.transitionTo('completed');
+        }
+
       },
       error: (error) => {
-        alert("Error: " + error.code + " " + error.message);
+        console.log('Error fetching location', error);
       }
     });
   }
@@ -41,10 +47,8 @@ class LocationBefore extends React.Component {
 
   render() {
     let {title, clues, location} = this.state;
-    let message = "Please login.";
 
-    if (User.loggedIn) {
-      let message = '';
+    if (Parse.User.current()) {
       return (
         <div className="location-before">
           <section>
@@ -58,7 +62,8 @@ class LocationBefore extends React.Component {
     }
 
     return (
-      this.context.router.transitionTo('login')
+      // this.context.router.transitionTo('login')
+      <div>Please login</div>
     )
   }
 };

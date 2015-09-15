@@ -1,7 +1,5 @@
 import React, {PropTypes} from 'react';
-
 import Parse from '../../parse';
-import User from '../../User';
 
 class Register extends React.Component {
 
@@ -26,10 +24,10 @@ class Register extends React.Component {
     user.set("password", data.password);
     user.set("firstName", data.firstName);
     user.set("lastName", data.lastName);
+    user.set("currentOrder", 0);
 
     user.signUp(null, {
       success: (user) => {
-        User.setData(user).login();
         self.context.router.transitionTo('launch');
       },
       error: (user, error) => {

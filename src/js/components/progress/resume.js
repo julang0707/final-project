@@ -1,48 +1,41 @@
 import React, {PropTypes} from 'react';
 import Parse from '../../parse';
 
-var FontAwesome = require('react-fontawesome');
-
-import User from '../../user';
-
 class Resume extends React.Component {
-
-  constructor(props) {
-    super(props);
-    var user = Parse.User.current();
-    user.set("currentOrder", this.props.order);
-    console.log(user.get("currentOrder"));
-    this.state = {
-      user: user
-    }
-    console.log(user);
-  }
-
   onSubmit() {
     this.context.router.transitionTo('before');
   }
 
   render() {
-    let message = "Please login.";
+    let user = Parse.User.current();
 
-    if (User.loggedIn) {
-      message = `${User.firstName}, resume your hunt.`;
+    if (!user) {
+      return <div>Please Login</div>
     }
 
-    return (
-      <div className="resume">
-        <section>
-          <h2>{message}</h2>
-          <p>Looks like you already started The Haystack. Resume your adventure.</p>
-          <button onClick={this.onSubmit.bind(this)} ref="resume">Resume Your Hunt</button>
-        </section>
-      </div>
-    )
+    console.log('props', this.props);
+    if (this.props.order > 0) {
+      return (
+        <div className="resume">
+          <section>
+            <h2>{user.get('firstName')}, resume your hunt.</h2>
+            <p>Looks like you already started The Haystack. Resume your adventure.</p>
+            <button onClick={this.onSubmit.bind(this)} ref="resume">Resume Your Hunt</button>
+          </section>
+        </div>
+      )
+    } else {
+      return <div/>
+    }
   }
 };
 
 Resume.contextTypes = {
     router: React.PropTypes.func
+};
+
+Resume.defaultProps = {
+  order: 0
 };
 
 export default Resume;
