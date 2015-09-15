@@ -1,8 +1,5 @@
 import React from 'react';
-
-import Parse from '../parse';
-import User from '../user';
-import MainHeader from './main-header';
+import Parse from '../../parse';
 
 class Login extends React.Component {
 
@@ -13,27 +10,24 @@ class Login extends React.Component {
       password: React.findDOMNode(this.refs.password).value
     }
 
-    if (data.username && data.password && data.password === User.password) {
-      alert('Please complete the registration form.')
+    if (!data.username && !data.password) {
+      alert('Oops! Your email or password is wrong. Try again!')
       return;
     }
     Parse.User.logIn(data.username, data.password, {
-      success: function(user) {
-        User.setData(user).login();
-        self.context.router.transitionTo('getstarted');
+      success: (user) => {
+        self.context.router.transitionTo('launch');
       },
-      error: function(user, error) {
-        // The login failed. Check error to see why.
+      error: (user, error) => {
+        alert("Error: " + error.code + " " + error.message);
       }
     });
   }
 
+
   render() {
     return (
       <div className="login">
-        <header>
-          <MainHeader/>
-        </header>
         <section>
           <h2>Login</h2>
           <input type="email" ref="username" className="email" placeholder="Email"/>
@@ -46,7 +40,7 @@ class Login extends React.Component {
 }
 
 Login.contextTypes = {
-    router: React.PropTypes.func
+  router: React.PropTypes.func
 };
 
 export default Login;

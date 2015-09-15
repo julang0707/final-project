@@ -32,11 +32,13 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-spec-reporter": "0.0.20",
+    "object-assign": "^4.0.1",
     "parse": "^1.5.0",
     "parse-react": "^0.4.2",
     "phantomjs": "^1.9.17",
     "react": "^0.13.3",
     "react-fontawesome": "^0.2.5",
+    "react-google-maps": "^2.0.3",
     "react-router": "^0.13.3",
     "vinyl-source-stream": "^1.1.0"
   }

@@ -1,0 +1,35 @@
+.location-details {
+  padding: 20px 15px;
+
+  h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+}
+
+.arrive-leave {
+  opacity: 1;
+}
+
+.arrive-leave.arrive-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.arrive-enter {
+  opacity: 0.01;
+}
+
+.arrive-enter.arrive-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.arrive-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+
+.arrive-appear.arrive-appear-active {
+  opacity: 1;
+}

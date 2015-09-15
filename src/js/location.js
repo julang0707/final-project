@@ -5,6 +5,8 @@ class Location {
     this.unlockCode = null;
     this.location = null;
     this.order = null;
+    this.image = null;
+    this.unlockQuestion = null;
 
   }
 

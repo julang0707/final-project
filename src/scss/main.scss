@@ -1,11 +1,55 @@
+// Third-Party
 @import "dist/bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "dist/bower_components/neat/app/assets/stylesheets/_neat.scss";
 @import "dist/bower_components/bitters/app/assets/stylesheets/_base.scss";
+@import "dist/bower_components/gallery-css/sass/gallery.theme.scss";
+@import "dist/bower_components/gallery-css/sass/_gallery.scss";
 
-@import 'partials/footer';
+//Fonts
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
+
+// Modules and Variables
+@import 'partials/variable';
+@import 'partials/normalize';
+
+// Partials
+@import 'partials/directions';
 @import 'partials/header';
-@import 'partials/image-slider';
+@import 'partials/footer';
+@import 'partials/button';
+@import 'partials/forms';
+@import 'partials/login';
+@import 'partials/register';
+@import 'partials/gallery';
+@import 'partials/details';
+@import 'partials/get-started';
+@import 'partials/resume';
+@import 'partials/location-details';
+@import 'partials/completed';
+@import 'partials/direction-details';
+@import 'partials/clues';
 
-body {
-  background-color: #F9F9F9;
+
+
+
+// Vendor
+@import 'vendor/slideshow';
+
+* {
+  font-family: 'Helevetica', sans-serif;
+  font-size: 16px;
+  color: $font-color;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color-melon;
+}
+
+a:hover {
+  color: darken($accent-color-melon, 15%);
+}
+
+#slides {
+  display:none;
 }

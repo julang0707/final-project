@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
-
-import Parse from '../parse';
+import Parse from '../../parse';
 
 class Register extends React.Component {
 
@@ -25,13 +24,13 @@ class Register extends React.Component {
     user.set("password", data.password);
     user.set("firstName", data.firstName);
     user.set("lastName", data.lastName);
+    user.set("currentOrder", 0);
 
     user.signUp(null, {
-      success: function(user) {
-        User.setData(user).login();
-        self.context.router.transitionTo('getstarted');
+      success: (user) => {
+        self.context.router.transitionTo('launch');
       },
-      error: function(user, error) {
+      error: (user, error) => {
         // Show the error message somewhere and let the user try again.
         alert("Error: " + error.code + " " + error.message);
       }
@@ -42,9 +41,6 @@ class Register extends React.Component {
 
     return (
       <div className="register">
-        <header>
-          <MainHeader/>
-        </header>
         <section>
           <h2>Register</h2>
           <input type="text" ref="firstName" className="first-name" placeholder="First Name"/>

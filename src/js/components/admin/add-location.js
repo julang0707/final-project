@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 
-import Parse from '../parse';
+import Parse from '../../parse';
 import Admin from './admin';
-import Location from '../location';
+import Location from '../../location';
 
 class AddLocation extends React.Component {
 
@@ -32,11 +32,11 @@ class AddLocation extends React.Component {
     location.set("order", Number(data.order));
 
     location.save(null, {
-      success: function(location) {
+      success: (location) => {
         Location.setData(location);
         self.context.router.transitionTo('admin');
       },
-      error: function(location, error) {
+      error: (location, error) => {
         alert('Failed to create new object, with error code: ' + error.message);
       }
     });
