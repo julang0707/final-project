@@ -25,6 +25,7 @@ class LocationBefore extends React.Component {
     var self = this;
     var query = relation.query();
     query.equalTo("order", User.currentOrder);
+    console.log(User.currentOrder);
     query.find({
       success: (child) => {
         let activeLocation = objectAssign({}, child[0].attributes, {

@@ -10,6 +10,7 @@ class Resume extends React.Component {
     var user = Parse.User.current();
     user.set("currentOrder", this.props.order);
     console.log(user.get("currentOrder"));
+    console.log(User.currentOrder);
     this.state = {
       user: user
     }

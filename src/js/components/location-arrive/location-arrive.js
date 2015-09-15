@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react/addons';
+let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import objectAssign from 'object-assign';
 import Parse from '../../parse';
 
@@ -47,9 +48,11 @@ class LocationArrive extends React.Component {
       let message = '';
       return (
         <div className="location-arrive">
-          <section>
-            <LocationDetails title={title} description={description} unlockCode={unlockCode} image={image} unlockQuestion={unlockQuestion}/>
-          </section>
+          <ReactCSSTransitionGroup transitionName="arrive" transitionAppear={true}>
+            <section>
+              <LocationDetails title={title} description={description} unlockCode={unlockCode} image={image} unlockQuestion={unlockQuestion}/>
+            </section>
+          </ReactCSSTransitionGroup>
         </div>
       )
     }

@@ -6,7 +6,6 @@ import User from '../../user';
 class LocationDetails extends React.Component {
 
   onSubmit() {
-    console.log(User.currentOrder);
     if(User.currentOrder === 10) {
       let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
       if (unlockCode === this.props.unlockCode) {
