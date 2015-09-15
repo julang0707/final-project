@@ -18,7 +18,7 @@ class LocationDirectionDetails extends React.Component {
     return (
       <div className="direction-details">
         <ul>
-          {this.props.steps.map((step) => <li dangerouslySetInnerHTML={this.setStepHtml(step)}></li>, this)}
+          {this.props.steps.map((step, i) => <li key={i} dangerouslySetInnerHTML={this.setStepHtml(step)}></li>, this)}
         </ul>
         <button onClick={this.onSubmit.bind(this)} ref="started">I've Arrived</button>
       </div>

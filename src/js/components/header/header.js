@@ -1,6 +1,6 @@
 import React from 'react';
-
-import User from '../../user';
+import {Link} from 'react-router';
+import Parse from '../../parse';
 import LoginButton from './login-button';
 import LogoutButton from './logout-button';
 
@@ -8,7 +8,7 @@ class Header extends React.Component {
 
   render() {
     var loginButton;
-    if (User.loggedIn) {
+    if (Parse.User.current()) {
       loginButton = <LogoutButton />;
     } else {
       loginButton = <LoginButton />;
@@ -18,7 +18,7 @@ class Header extends React.Component {
       <header className="navigation" role="banner">
         <nav>
           <h1 className="logo">
-            THE HAYSTACK
+            <Link to="details">THE HAYSTACK</Link>
           </h1>
           <h2 className="status">{loginButton}</h2>
         </nav>

@@ -1,10 +1,10 @@
 import React from 'react';
-import Link from 'react-router';
+import {Link} from 'react-router';
 
 class LoginButton extends React.Component {
   render() {
     return(
-      <a href="/login">Login</a>
+      <Link to="login">Login</Link>
     )
   }
 }
