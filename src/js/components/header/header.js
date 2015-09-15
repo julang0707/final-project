@@ -17,9 +17,7 @@ class Header extends React.Component {
     return(
       <header className="navigation" role="banner">
         <nav>
-          <h1 className="logo">
-            <Link to="details">THE HAYSTACK</Link>
-          </h1>
+          <Link to="details"><img src="img/haystack-logo.png"/></Link>
           <h2 className="status">{loginButton}</h2>
         </nav>
       </header>
