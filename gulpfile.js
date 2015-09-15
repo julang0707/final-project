@@ -7,6 +7,7 @@ var source = require('vinyl-source-stream');
 var del = require('del');
 var Karma = require('karma');
 var webserver = require('gulp-webserver');
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('lint', function() {
   return gulp.src('./src/**/*.js')
@@ -61,6 +62,11 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       fallback: 'index.html'
     }));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 
