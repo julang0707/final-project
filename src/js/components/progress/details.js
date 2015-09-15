@@ -1,8 +1,5 @@
 import React, {PropTypes} from 'react';
 import Parse from '../../parse';
-import $ from 'jquery';
-
-var FontAwesome = require('react-fontawesome');
 
 import User from '../../user';
 import Login from '../login/login';
@@ -14,12 +11,15 @@ class Details extends React.Component {
   }
   render() {
     return (
-      <section className="details">
+      <main className="details">
         <ImageSlider/>
-        <h2>Welcome to THE HAYSTACK!</h2>
-        <p>Downtown Nashville is packed with interesting sites and unique experiences.  THE HAYSTACK will lead you through a 10 stop mystery tour of downtown Nashville.  Trust us you'll enjoy your walk through Music City!</p>
-        <button onClick={this.onSubmit.bind(this)} ref="register">Register Now</button>
-      </section>
+        <section className="intro">
+          <h2>Welcome to THE HAYSTACK!</h2>
+          <p>Downtown Nashville is packed with interesting sites and unique experiences.  THE HAYSTACK will lead you through a 10 stop mystery tour of downtown Nashville.  Trust us you'll enjoy your walk through Music City!</p>
+          <button onClick={this.onSubmit.bind(this)} ref="register">Register Now</button>
+        </section>
+      </main>
+
     )
   }
 };

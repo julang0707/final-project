@@ -2,8 +2,6 @@ import React, {PropTypes} from 'react';
 import Parse from '../../parse';
 import objectAssign from 'object-assign';
 
-var FontAwesome = require('react-fontawesome');
-
 import User from '../../user';
 import Login from '../login/login';
 import GetStarted from './get-started';

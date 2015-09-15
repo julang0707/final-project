@@ -2,7 +2,8 @@
 @import "dist/bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "dist/bower_components/neat/app/assets/stylesheets/_neat.scss";
 @import "dist/bower_components/bitters/app/assets/stylesheets/_base.scss";
-@import "dist/bower_components/slick-carousel/slick/slick-theme.scss";
+@import "dist/bower_components/gallery-css/sass/gallery.theme.scss";
+@import "dist/bower_components/gallery-css/sass/_gallery.scss";
 
 //Fonts
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
@@ -19,9 +20,20 @@
 @import 'partials/forms';
 @import 'partials/login';
 @import 'partials/register';
+@import 'partials/gallery';
+@import 'partials/details';
+@import 'partials/get-started';
+@import 'partials/resume';
+@import 'partials/location-details';
+@import 'partials/completed';
+@import 'partials/direction-details';
+@import 'partials/clues';
+
+
+
 
 // Vendor
-@import 'vendor/image-slider';
+@import 'vendor/slideshow';
 
 * {
   font-family: 'Helevetica', sans-serif;
