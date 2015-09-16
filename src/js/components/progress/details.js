@@ -20,7 +20,7 @@ class Details extends React.Component {
         <section className="intro">
           <h2>Welcome to THE HAYSTACK!</h2>
           <p>Downtown Nashville is packed with interesting sites and unique experiences.  THE HAYSTACK will lead you through a 10 stop mystery tour of downtown Nashville.  Trust us you'll enjoy your walk through Music City!</p>
-          {registerBtn}
+          <button>{registerBtn}</button>
         </section>
       </main>
 

@@ -3,31 +3,21 @@ import React, {PropTypes} from 'react';
 class ImageSlider extends React.Component {
   render() {
     return (
-      <div className="gallery autoplay items-3">
-      <div id="item-1" className="control-operator"></div>
-      <div id="item-2" className="control-operator"></div>
-      <div id="item-3" className="control-operator"></div>
-
-      <figure className="item">
-        <img src="img/bootsguitar-wide.jpg" />
-      </figure>
-
-      <figure className="item">
-        <img src="img/musicvenue-wide.jpg" />
-      </figure>
-
-      <figure className="item">
-        <img src="img/records-wide.jpg" />
-      </figure>
-
-
-    </div>
+      <div id="slider">
+        <figure>
+        <img src="img/records-large.jpg" alt=""/>
+        <img src="img/musicvenue-large.jpg" alt=""/>
+        <img src="img/river-large.jpg" alt=""/>
+        <img src="img/boots-large.jpg" alt=""/>
+        <img src="img/bootsguitar-large.jpg" alt=""/>
+        </figure>
+      </div>
     );
   }
 };
 
 ImageSlider.contextTypes = {
-    router: React.PropTypes.func
+  router: React.PropTypes.func
 };
 
 export default ImageSlider;
