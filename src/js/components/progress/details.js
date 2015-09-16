@@ -18,9 +18,9 @@ class Details extends React.Component {
       <main className="details">
         <ImageSlider/>
         <section className="intro">
-          <h2>Welcome to THE HAYSTACK!</h2>
-          <p>Downtown Nashville is packed with interesting sites and unique experiences.  THE HAYSTACK will lead you through a 10 stop mystery tour of downtown Nashville.  Trust us you'll enjoy your walk through Music City!</p>
-          <button>{registerBtn}</button>
+          <h2><span>Welcome to THE HAYSTACK!</span></h2>
+          <p>Downtown Nashville is packed with interesting sites and unique experiences.<br/>THE HAYSTACK will lead you through a 10 stop mystery tour of downtown Nashville.<br/>Trust us you'll enjoy your walk through Music City!</p>
+          {registerBtn}
         </section>
       </main>
 

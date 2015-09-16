@@ -1,16 +1,48 @@
 .intro {
-  padding: 20px 15px;
 
   h2 {
-    font-size: 1.1em;
-    font-weight: bold;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+
+    span {
+      color: white;
+      font: bold 3em Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: $font-color;
+      padding: 8px;
+    }
   }
+
+  p {
+    position: absolute;
+    top: 300px;
+    left: 0;
+    width: 100%;
+
+    span {
+      color: white;
+      font: bold 1.2em Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: $font-color;
+      padding: 8px;
+      line-height: 2.5;
+    }
+  }
+
   a {
-    font-weight: bold;
-    color: #35404F;
+    position: absolute;
+    top: 450px;
+    left: 0;
+    color: $accent-color-melon;
+    font: bold 3em Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    padding: 10px;
   }
 
   a:hover {
-    color: #fff;
+    color: lighten($accent-color-melon, 7%);
   }
+
 }
