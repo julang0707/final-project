@@ -624,72 +624,8 @@ td,
 th {
   padding: 0; }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-
-#map {
-  height: 100%; }
-
-#panel {
-  position: absolute;
-  top: 10px;
-  left: 25%;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-  text-align: center; }
-
-/**
-* Provide the following styles for both ID and class, where ID represents an
-* actual existing "panel" with JS bound to its name, and the class is just
-* non-map content that may already have a different ID with JS bound to its
-* name.
-*/
-#panel, .panel {
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px; }
-
-#panel select, #panel input, .panel select, .panel input {
-  font-size: 15px; }
-
-#panel select, .panel select {
-  width: 100%; }
-
-#panel i, .panel i {
-  font-size: 12px; }
-
-#directions-panel {
-  height: 100%;
-  float: right;
-  width: 390px;
-  overflow: auto; }
-
-#map {
-  margin-right: 400px; }
-
-#control {
-  background: #fff;
-  padding: 5px;
-  font-size: 14px;
-  font-family: Arial;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-  display: none; }
-
-#panel select, .panel select {
-  display: block; }
-
-@media print {
-  #map {
-    height: 500px;
-    margin: 0; }
-  #directions-panel {
-    float: none;
-    width: auto; } }
+.steps img {
+  padding: 5px 0 5px 50px; }
 
 .navigation {
   background-color: #35404F;
@@ -770,7 +706,14 @@ body {
   margin: 0; }
 
 div#slider {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 543px; }
+  @media screen and (max-width: 740px) {
+    div#slider {
+      height: 333px; } }
+  @media screen and (max-width: 500px) {
+    div#slider {
+      height: 267px; } }
 
 div#slider figure img {
   width: 20%;
@@ -783,28 +726,131 @@ div#slider figure {
   left: 0;
   text-align: left;
   font-size: 0;
-  animation: 30s slidy infinite; }
+  animation: 30s slidy infinite;
+  opacity: .3; }
 
-.intro {
-  padding: 20px 15px; }
-  .intro h2 {
-    font-size: 1.1em;
-    font-weight: bold; }
-  .intro a {
-    font-weight: bold;
-    color: #35404F; }
+.intro h2 {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%; }
+  @media screen and (max-width: 740px) {
+    .intro h2 {
+      top: 282px; } }
+  @media screen and (max-width: 500px) {
+    .intro h2 {
+      top: 235px; } }
+  .intro h2 span {
+    color: white;
+    font: bold 3em Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: #35404F;
+    padding: 8px; }
+    @media screen and (max-width: 740px) {
+      .intro h2 span {
+        font-size: 1.9em; } }
+    @media screen and (max-width: 500px) {
+      .intro h2 span {
+        font-size: 1.5em; } }
+
+.intro p {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 100%; }
+  @media screen and (max-width: 740px) {
+    .intro p {
+      display: none; } }
+  @media screen and (max-width: 500px) {
+    .intro p {
+      display: none; } }
+  .intro p span {
+    color: white;
+    font: bold 1.2em Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: #35404F;
+    padding: 8px;
+    line-height: 2.5; }
+
+.intro a {
+  position: absolute;
+  top: 450px;
+  left: 0;
+  color: #DD382C;
+  font: bold 3em Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  padding: 10px; }
+  @media screen and (max-width: 740px) {
+    .intro a {
+      font-size: 1.9em;
+      top: 330px; } }
+  @media screen and (max-width: 500px) {
+    .intro a {
+      font-size: 1.5em;
+      top: 275px; } }
+
+.intro a:hover {
+  color: #e2554b; }
 
 .getstarted {
   padding: 20px 15px; }
   .getstarted h2 {
     font-size: 1.1em;
-    font-weight: bold; }
+    font-weight: bold;
+    padding: 0 0 10px 0; }
+  .getstarted p {
+    padding: 0 0 10px 0; }
+  .getstarted ul {
+    padding: 0 0 10px 0;
+    list-style: disc inside none; }
+
+.getstarted-leave {
+  opacity: 1; }
+
+.getstarted-leave.getstarted-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in; }
+
+.getstarted-enter {
+  opacity: 0.01; }
+
+.getstarted-enter.getstarted-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in; }
+
+.getstarted-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in; }
+
+.getstarted-appear.getstarted-appear-active {
+  opacity: 1; }
 
 .resume {
   padding: 20px 15px; }
   .resume h2 {
     font-size: 1.1em;
     font-weight: bold; }
+
+.resume-leave {
+  opacity: 1; }
+
+.resume-leave.resume-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in; }
+
+.resume-enter {
+  opacity: 0.01; }
+
+.resume-enter.resume-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in; }
+
+.resume-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in; }
+
+.resume-appear.resume-appear-active {
+  opacity: 1; }
 
 .location-details {
   padding: 20px 15px; }
@@ -839,17 +885,65 @@ div#slider figure {
     font-size: 1.1em;
     font-weight: bold; }
 
+.completed-leave {
+  opacity: 1; }
+
+.completed-leave.completed-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in; }
+
+.completed-enter {
+  opacity: 0.01; }
+
+.completed-enter.completed-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in; }
+
+.completed-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in; }
+
+.completed-appear.completed-appear-active {
+  opacity: 1; }
+
 .direction-details {
-  padding: 20px 15px; }
+  padding: 5px 15px 20px 15px; }
   .direction-details h2 {
     font-size: 1.1em;
     font-weight: bold; }
+  .direction-details ul {
+    padding: 0 0 15px 0; }
 
 .location-clues {
-  padding: 20px 15px; }
+  padding: 20px 15px 10px 15px; }
   .location-clues h2 {
     font-size: 1.1em;
-    font-weight: bold; }
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 0 0 0; }
+  .location-clues ul {
+    list-style: disc inside none; }
+
+.before-leave {
+  opacity: 1; }
+
+.before-leave.before-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in; }
+
+.before-enter {
+  opacity: 0.01; }
+
+.before-enter.before-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in; }
+
+.before-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in; }
+
+.before-appear.before-appear-active {
+  opacity: 1; }
 
 * {
   font-family: 'Helevetica', sans-serif;
