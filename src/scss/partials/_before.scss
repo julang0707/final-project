@@ -1,0 +1,26 @@
+.before-leave {
+  opacity: 1;
+}
+
+.before-leave.before-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.before-enter {
+  opacity: 0.01;
+}
+
+.before-enter.before-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.before-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+
+.before-appear.before-appear-active {
+  opacity: 1;
+}

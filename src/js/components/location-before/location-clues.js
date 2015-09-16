@@ -10,10 +10,11 @@ class LocationClues extends React.Component {
       <div className="location-clues">
         <section>
           <img ref="image" className="image" src="img/nashville.jpg"/>
-          <h2>{this.props.title}</h2>
+          <h2>A few clues about your next location:</h2>
           <ul>
             {this.props.clues.map((clue, i) => <li key={i}>{clue}</li>)}
           </ul>
+          <h2>Here are the directions to {this.props.title}</h2>
         </section>
       </div>
     )

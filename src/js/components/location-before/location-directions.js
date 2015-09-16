@@ -45,6 +45,15 @@ class LocationDirections extends React.Component {
 
   render () {
     let {steps} = this.state;
+
+    if (!steps.length) {
+      return (
+        <div className="steps">
+          <img src="img/ajax-loader-bar.gif"/>
+        </div>
+      )
+    }
+
     return (
       <LocationDirectionDetails steps={steps}/>
     )

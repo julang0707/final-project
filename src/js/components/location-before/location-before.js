@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react/addons';
+let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import objectAssign from 'object-assign';
 import Parse from '../../parse';
 
@@ -39,7 +40,7 @@ class LocationBefore extends React.Component {
 
       },
       error: (error) => {
-        console.log('Error fetching location', error);
+        alert('Error fetching location', error);
       }
     });
   }
@@ -51,12 +52,14 @@ class LocationBefore extends React.Component {
     if (Parse.User.current()) {
       return (
         <div className="location-before">
-          <section>
-            <LocationClues title={title} clues={clues}/>
-          </section>
-          <section>
-            <LocationDirections location={location} />
-          </section>
+          <ReactCSSTransitionGroup transitionName="before" transitionAppear={true}>
+            <section>
+              <LocationClues title={title} clues={clues}/>
+            </section>
+            <section>
+              <LocationDirections location={location} />
+            </section>
+          </ReactCSSTransitionGroup>
         </div>
       )
     }
@@ -69,7 +72,7 @@ class LocationBefore extends React.Component {
 };
 
 LocationBefore.contextTypes = {
-    router: React.PropTypes.func
+  router: React.PropTypes.func
 };
 
 export default LocationBefore;

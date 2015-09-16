@@ -6,3 +6,30 @@
     font-weight: bold;
   }
 }
+
+.resume-leave {
+  opacity: 1;
+}
+
+.resume-leave.resume-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.resume-enter {
+  opacity: 0.01;
+}
+
+.resume-enter.resume-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.resume-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+
+.resume-appear.resume-appear-active {
+  opacity: 1;
+}

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react/addons';
+let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import Parse from '../../parse';
 
 
@@ -20,10 +21,13 @@ class Completed extends React.Component {
 
     return (
       <div className="resume">
-        <section>
-          <h2>{message}</h2>
-          <p>Thanks for completing The Haystack.  Hope you enjoyed your adventure in Nashville.</p>
-        </section>
+        <ReactCSSTransitionGroup transitionName="arrive" transitionAppear={true}>
+          <section>
+            <img src="img/parthenon.jpg"/>
+            <h2>{message}</h2>
+            <p>Thanks for completing The Haystack.  Hope you enjoyed your adventure in Nashville.</p>
+          </section>
+        </ReactCSSTransitionGroup>
       </div>
     )
   }

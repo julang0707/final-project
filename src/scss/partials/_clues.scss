@@ -1,8 +1,14 @@
 .location-clues {
-  padding: 20px 15px;
+  padding: 20px 15px 10px 15px;
 
   h2 {
     font-size: 1.1em;
     font-weight: bold;
+    margin: 0;
+    padding: 10px 0 0 0;
+  }
+
+  ul {
+      list-style: disc inside none;
   }
 }

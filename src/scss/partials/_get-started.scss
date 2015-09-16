@@ -4,5 +4,43 @@
   h2 {
     font-size: 1.1em;
     font-weight: bold;
+    padding: 0 0 10px 0;
   }
+
+  p {
+    padding: 0 0 10px 0;
+  }
+
+  ul {
+    padding: 0 0 10px 0;
+    list-style: disc inside none;
+  }
+
+}
+
+.getstarted-leave {
+  opacity: 1;
+}
+
+.getstarted-leave.getstarted-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.getstarted-enter {
+  opacity: 0.01;
+}
+
+.getstarted-enter.getstarted-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.getstarted-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+
+.getstarted-appear.getstarted-appear-active {
+  opacity: 1;
 }

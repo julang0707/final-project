@@ -6,3 +6,30 @@
     font-weight: bold;
   }
 }
+
+.completed-leave {
+  opacity: 1;
+}
+
+.completed-leave.completed-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.completed-enter {
+  opacity: 0.01;
+}
+
+.completed-enter.completed-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.completed-appear {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+
+.completed-appear.completed-appear-active {
+  opacity: 1;
+}
