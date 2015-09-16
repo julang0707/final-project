@@ -17,6 +17,14 @@ body {
 div#slider {
   overflow: hidden;
   height: 543px;
+
+  @media screen and (max-width: $break-medium) {
+    height: 333px;
+  }
+
+  @media screen and (max-width: $break-small) {
+    height: 267px;
+  }
 }
 
 div#slider figure img {
