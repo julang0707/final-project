@@ -10,9 +10,28 @@
 100% { left: -400%; }
 }
 
-body { margin: 0; }
-div#slider { overflow: hidden; }
-div#slider figure img { width: 20%; float: left; }
+body {
+  margin: 0;
+}
+
+div#slider {
+  overflow: hidden;
+  height: 543px;
+
+  @media screen and (max-width: $break-medium) {
+    height: 333px;
+  }
+
+  @media screen and (max-width: $break-small) {
+    height: 267px;
+  }
+}
+
+div#slider figure img {
+  width: 20%;
+  float: left;
+}
+
 div#slider figure {
   position: relative;
   width: 500%;
@@ -21,4 +40,5 @@ div#slider figure {
   text-align: left;
   font-size: 0;
   animation: 30s slidy infinite;
+  opacity: .3;
 }
