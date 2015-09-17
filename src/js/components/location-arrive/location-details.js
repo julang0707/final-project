@@ -1,12 +1,18 @@
 import React, {PropTypes} from 'react';
 import Parse from '../../parse';
+import SweetAlert from 'sweetalert';
 
 class LocationDetails extends React.Component {
 
   onSubmit() {
       let unlockCode = React.findDOMNode(this.refs.unlockcode).value.toLowerCase();
       if (unlockCode !== this.props.unlockCode) {
-        alert('Try again.');
+        swal({
+          title: "Oops!",
+          text: "Your unlock code is incorrect.",
+          type: "error",
+          confirmButtonText: "Try again!"
+        });
         return;
       }
 

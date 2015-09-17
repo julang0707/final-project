@@ -35,7 +35,7 @@ class LocationDirections extends React.Component {
             steps: steps
           });
         } else {
-          window.alert('Directions request failed due to ' + status);
+          sweetAlert("Oops...", "Directions request failed due to load", "error");
         }
       });
 

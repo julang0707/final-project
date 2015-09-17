@@ -2,13 +2,14 @@ import React, {PropTypes} from 'react/addons';
 let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import objectAssign from 'object-assign';
 import Parse from '../../parse';
+import SweetAlert from 'sweetalert';
 
 import Location from '../../location';
 import LocationDetails from "./location-details";
 
 class LocationArrive extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       title: '',
       image: '',
@@ -17,6 +18,13 @@ class LocationArrive extends React.Component {
       unlockQuestion: '',
     }
   }
+
+  static willTransitionTo (transition, context) {
+   if (!Parse.User.current()) {
+       transition.redirect('login');
+    }
+  }
+
   componentDidMount() {
     var user = Parse.User.current();
     let Locations = Parse.Object.extend('Locations');
@@ -36,7 +44,7 @@ class LocationArrive extends React.Component {
         });
       },
       error: (error) => {
-        alert("Error: " + error.code + " " + error.message);
+        sweetAlert("Oops...", "Something went wrong finding your location!", "error");
       }
     });
   }
@@ -60,8 +68,7 @@ class LocationArrive extends React.Component {
       )
     }
     return (
-      // this.context.router.transitionTo('login')
-      <div>Please login...</div>
+      <div></div>
     )
   }
 };
