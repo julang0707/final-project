@@ -9,13 +9,19 @@ import LocationDirections from './location-directions';
 
 class LocationBefore extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       clues: [],
       title: null,
       image: null,
       location: null
+    }
+  }
+
+  static willTransitionTo (transition, context) {
+   if (!Parse.User.current()) {
+       transition.redirect('login');
     }
   }
 
@@ -65,8 +71,7 @@ class LocationBefore extends React.Component {
     }
 
     return (
-      // this.context.router.transitionTo('login')
-      <div>Please login</div>
+      <div></div>
     )
   }
 };

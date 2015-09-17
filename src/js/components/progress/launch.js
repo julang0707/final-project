@@ -6,10 +6,16 @@ import GetStarted from './get-started';
 import Resume from './resume';
 
 class Launch extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       currentOrder: 0,
+    }
+  }
+
+  static willTransitionTo (transition, context) {
+   if (!Parse.User.current()) {
+       transition.redirect('login');
     }
   }
 
@@ -43,8 +49,10 @@ class Launch extends React.Component {
         </div>
       )
     }
-    // this.context.router.transitionTo('login')
-    return (<div>Please login.</div>)
+
+    return (
+      <div></div>
+    )
   }
 };
 

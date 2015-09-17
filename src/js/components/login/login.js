@@ -19,7 +19,11 @@ class Login extends React.Component {
         self.context.router.transitionTo('launch');
       },
       error: (user, error) => {
-        alert("Error: " + error.code + " " + error.message);
+        sweetAlert({
+        	title: "Oops!",
+          text: "Something went wrong on the page!",
+          type: "error"
+        });
       }
     });
   }

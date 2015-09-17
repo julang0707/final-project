@@ -4,6 +4,17 @@ import Parse from '../../parse';
 
 
 class Completed extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  static willTransitionTo (transition, context) {
+   if (!Parse.User.current()) {
+       transition.redirect('login');
+    }
+  }
+
   componentDidMount() {
     let user = Parse.User.current();
     user.set('currentOrder', 0);
