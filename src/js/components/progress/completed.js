@@ -35,7 +35,7 @@ class Completed extends React.Component {
       <div className="completed">
         <ReactCSSTransitionGroup transitionName="arrive" transitionAppear={true}>
           <section>
-            <img src="img/nashville-completed.jpg"/>
+            <img src="img/nashville-completed-large.jpg"/>
             <h2><span>{message}</span></h2>
             <p><span>Thanks for completing The Haystack.  Hope you enjoyed your adventure in Nashville.</span></p>
             <Link to="launch">Start Over</Link>
