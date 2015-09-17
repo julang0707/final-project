@@ -1608,10 +1608,71 @@ div#slider figure {
   opacity: 1; }
 
 .completed {
-  padding: 20px 15px; }
+  height: 543px; }
+  .completed img {
+    position: relative;
+    opacity: .3;
+    height: 543px;
+    width: 100%; }
   .completed h2 {
-    font-size: 1.1em;
-    font-weight: bold; }
+    position: absolute;
+    top: 300px;
+    left: 0;
+    width: 100%; }
+    @media screen and (max-width: 740px) {
+      .completed h2 {
+        top: 282px; } }
+    @media screen and (max-width: 500px) {
+      .completed h2 {
+        top: 235px; } }
+    .completed h2 span {
+      color: white;
+      font: bold 3em Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: #35404F;
+      padding: 8px; }
+      @media screen and (max-width: 740px) {
+        .completed h2 span {
+          font-size: 1.9em; } }
+      @media screen and (max-width: 500px) {
+        .completed h2 span {
+          font-size: 1.5em; } }
+  .completed p {
+    position: absolute;
+    top: 375px;
+    left: 0;
+    width: 100%; }
+    @media screen and (max-width: 740px) {
+      .completed p {
+        display: none; } }
+    @media screen and (max-width: 500px) {
+      .completed p {
+        display: none; } }
+    .completed p span {
+      color: white;
+      font: bold 1.2em Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: #35404F;
+      padding: 8px;
+      line-height: 2.5; }
+  .completed a {
+    position: absolute;
+    top: 450px;
+    left: 0;
+    color: #DD382C;
+    font: bold 3em Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    padding: 10px; }
+    @media screen and (max-width: 740px) {
+      .completed a {
+        font-size: 1.9em;
+        top: 330px; } }
+    @media screen and (max-width: 500px) {
+      .completed a {
+        font-size: 1.5em;
+        top: 275px; } }
+  .completed a:hover {
+    color: #e2554b; }
 
 .completed-leave {
   opacity: 1; }
