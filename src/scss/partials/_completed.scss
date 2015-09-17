@@ -1,10 +1,90 @@
 .completed {
-  padding: 20px 15px;
+  img {
+    position: relative;
+    opacity: .3;
+    height: 785px;
+  }
 
   h2 {
-    font-size: 1.1em;
-    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 0;
+    width: 100%;
+
+    @media screen and (max-width: $break-medium) {
+      top: 282px;
+    }
+
+    @media screen and (max-width: $break-small) {
+      top: 235px;
+    }
+
+    span {
+      color: white;
+      font: bold 3em Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: $font-color;
+      padding: 8px;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 1.9em
+      }
+
+      @media screen and (max-width: $break-small) {
+        font-size: 1.5em
+      }
+    }
   }
+
+  p {
+    position: absolute;
+    top: 575px;
+    left: 0;
+    width: 100%;
+
+    @media screen and (max-width: $break-medium) {
+      display: none;
+    }
+
+    @media screen and (max-width: $break-small) {
+      display: none;
+    }
+
+    span {
+      color: white;
+      font: bold 1.2em Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: $font-color;
+      padding: 8px;
+      line-height: 2.5;
+    }
+  }
+
+  a {
+    position: absolute;
+    top: 650px;
+    left: 0;
+    color: $accent-color-melon;
+    font: bold 3em Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    padding: 10px;
+
+    @media screen and (max-width: $break-medium) {
+      font-size: 1.9em;
+      top: 330px;
+    }
+
+    @media screen and (max-width: $break-small) {
+      font-size: 1.5em;
+      top: 275px;
+    }
+
+  }
+
+  a:hover {
+    color: lighten($accent-color-melon, 7%);
+  }
+
 }
 
 .completed-leave {
