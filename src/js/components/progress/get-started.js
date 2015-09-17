@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react/addons';
 let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import Parse from '../../parse';
+import SweetAlert from 'sweetalert';
 
 class GetStarted extends React.Component {
 
@@ -18,7 +19,7 @@ class GetStarted extends React.Component {
         });
       },
       error: (error) => {
-        alert("Error: " + error.code + " " + error.message);
+        sweetAlert("Oops...", "Something went wrong finding your location!", "error");
       }
     });
   }

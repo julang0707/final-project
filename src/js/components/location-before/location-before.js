@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react/addons';
 let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import objectAssign from 'object-assign';
 import Parse from '../../parse';
+import SweetAlert from 'sweetalert';
 
 import Location from '../../location';
 import LocationClues from './location-clues';
@@ -46,7 +47,7 @@ class LocationBefore extends React.Component {
 
       },
       error: (error) => {
-        alert('Error fetching location', error);
+        sweetAlert("Oops...", "Something went wrong finding your location!", "error");
       }
     });
   }

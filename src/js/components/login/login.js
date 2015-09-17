@@ -1,5 +1,6 @@
 import React from 'react';
 import Parse from '../../parse';
+import SweetAlert from 'sweetalert';
 
 class Login extends React.Component {
 
@@ -10,19 +11,16 @@ class Login extends React.Component {
       password: React.findDOMNode(this.refs.password).value
     }
 
-    if (!data.username && !data.password) {
-      alert('Oops! Your email or password is wrong. Try again!')
-      return;
-    }
     Parse.User.logIn(data.username, data.password, {
       success: (user) => {
         self.context.router.transitionTo('launch');
       },
       error: (user, error) => {
-        sweetAlert({
-        	title: "Oops!",
-          text: "Something went wrong on the page!",
-          type: "error"
+        swal({
+          title: "Oops!",
+          text: "Your email or password is wrong.",
+          type: "error",
+          confirmButtonText: "Try again!"
         });
       }
     });

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import Parse from '../../parse';
+import SweetAlert from 'sweetalert';
 
 class Register extends React.Component {
 
@@ -10,11 +11,6 @@ class Register extends React.Component {
       firstName: React.findDOMNode(this.refs.firstName).value,
       lastName: React.findDOMNode(this.refs.lastName).value,
       password: React.findDOMNode(this.refs.password).value
-    }
-
-    if (!(data.username && data.password && data.firstName && data.lastName)) {
-      alert('Please complete the registration form.')
-      return;
     }
 
     Parse.User.logOut();
@@ -31,8 +27,12 @@ class Register extends React.Component {
         self.context.router.transitionTo('launch');
       },
       error: (user, error) => {
-        // Show the error message somewhere and let the user try again.
-        alert("Error: " + error.code + " " + error.message);
+        swal({
+          title: "Oops!",
+          text: "Please complete the registration form.",
+          type: "error",
+          confirmButtonText: "Continue"
+        });
       }
     });
   }
