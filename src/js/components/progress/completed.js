@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react/addons';
+import {Link} from 'react-router';
 let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import Parse from '../../parse';
 
@@ -31,12 +32,13 @@ class Completed extends React.Component {
     }
 
     return (
-      <div className="resume">
+      <div className="completed">
         <ReactCSSTransitionGroup transitionName="arrive" transitionAppear={true}>
           <section>
-            <img src="img/parthenon.jpg"/>
-            <h2>{message}</h2>
-            <p>Thanks for completing The Haystack.  Hope you enjoyed your adventure in Nashville.</p>
+            <img src="img/nashville-completed.jpg"/>
+            <h2><span>{message}</span></h2>
+            <p><span>Thanks for completing The Haystack.  Hope you enjoyed your adventure in Nashville.</span></p>
+            <Link to="launch">Start Over</Link>
           </section>
         </ReactCSSTransitionGroup>
       </div>
