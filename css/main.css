@@ -1640,10 +1640,10 @@ div#slider figure {
       padding: 8px; }
       @media screen and (max-width: 800px) {
         .completed h2 span {
-          font-size: 1.9em; } }
+          font-size: 1.7em; } }
       @media screen and (max-width: 500px) {
         .completed h2 span {
-          font-size: 1.5em; } }
+          font-size: 1.3em; } }
   .completed p {
     position: absolute;
     top: 375px;
